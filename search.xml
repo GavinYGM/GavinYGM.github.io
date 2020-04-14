@@ -179,6 +179,29 @@
 <p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415000958172.png" alt="image-20200415000958172"></p>
 <p><strong>以上是我在配置博客主题的时候遇到问题的地方吧，文章最后会给出参考链接，链接中给我遇到问题的地方都已经给出了，还有一些我没有用到的效果，可以自行使用，问题都不大啦！！！</strong></p>
 <h2 id="部署到github远程仓库"><a href="#部署到github远程仓库" class="headerlink" title="部署到github远程仓库"></a>部署到github远程仓库</h2><h3 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h3><p>这里需要注意创建仓库的名称一定要是<code>你的github名称.github.io</code></p>
+<h3 id="链接到本地hexo"><a href="#链接到本地hexo" class="headerlink" title="链接到本地hexo"></a>链接到本地hexo</h3><ul>
+<li><p>复制github仓库的链接</p>
+</li>
+<li><p>打开项目根目录的_config.yml文件，<code>Ctrl+f</code>搜索<code>deploy</code>，<strong>tpye</strong> 设置为 <strong>git</strong>，<strong>repo</strong> 则设置为刚刚新建的远程仓库链接。</p>
+<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415003907761.png" alt="image-20200415003907761" style="zoom:80%;">
+</li>
+<li><p>然后在项目根目录下安装插件，<strong>记住一定是根目录！！！前面好几处错误都不是根目录导致的。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后在根目录下执行代码部署到github</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean #这句是清除所有本地的静态文件</span><br><span class="line">hexo g  #再生成所有静态文件</span><br><span class="line">hexo d  #部署到远程仓库</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以看到github仓库中有了内容，但是这样还不行，这样访问链接的话是没有一点样式的，还需要在本地hexo项目根目录下的_config.ym文件中，<code>Ctrl+f</code>搜索url，然后把github仓库的setting中的链接填写到下面的位置</p>
+<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004808091.png" alt="image-20200415004808091" style="zoom: 50%;">
+
+</li>
+</ul>
+<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004858384.png" alt="image-20200415004858384" style="zoom: 67%;">
+
+<ul>
+<li>然后再重新部署整个项目，即可看到成功搭建完成了！！！</li>
+</ul>
+<h2 id="本文参考链接"><a href="#本文参考链接" class="headerlink" title="本文参考链接"></a>本文参考链接</h2><p><a href="https://blog.csdn.net/weidong_y/article/details/90904781" target="_blank" rel="noopener">https://blog.csdn.net/weidong_y/article/details/90904781</a></p>
 ]]></content>
       <categories>
         <category>建站</category>
