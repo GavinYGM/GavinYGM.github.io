@@ -289,7 +289,6 @@
       
         <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>nodejs、本地Git bash安装、github注册等等这些之前在学习vue的时候都已经配置过了，所以我一上来就是直接配置Hexo的。</p>
 <h2 id="本地搭建Hexo步骤"><a href="#本地搭建Hexo步骤" class="headerlink" title="本地搭建Hexo步骤"></a>本地搭建Hexo步骤</h2><h3 id="npm安装hexo"><a href="#npm安装hexo" class="headerlink" title="npm安装hexo"></a>npm安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
 <p><strong><font style="color:red;">重点hexo安装慢和后面hexo init初始化慢的坑</font>：就是要给npm换源，换成国内的镜像源，我用过下面两种方法，建议第二种，因为后面初始化hexo init是要用npm的</strong></p>
 <ul>
 <li><p>使用阿里定制的 cnpm 命令行工具代替默认的 npm</p>
@@ -297,7 +296,6 @@
 </li>
 <li><p>直接把npm换为淘宝源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
 <p>输入<code>npm config list</code>可以查看是否换源成功</p>
 <p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414215447453.png" alt="image-20200414215447453.png"></p>
 </li>
@@ -306,50 +304,45 @@
 <h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><ul>
 <li><p>首先我是先找了一个比较空的不常用的磁盘作为我的博客的建站地点，然后右击git bash打开git的命令行，并执行一下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
 <p><strong>这个地方需要注意，可能到某个地方下载的特别慢，但是如果前面切换了npm，应该很快就好了，我当时觉得感觉到卡住了，所以搜了一下，但是删除这个项目的时候说.git文件正在使用中，然后在配置好了npm镜像源之后果断重启了电脑，然后删掉了项目，重新执行上面的命令</strong></p>
 <p>完成了之后会出现在本地下载好如下内容(确实有点像vue)，但是在接下来的各种操作，只需要关注下面几个文件夹就好了。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414194329012.png" alt="image-20200414194329012" style="zoom:80%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414194329012.png" alt="image-20200414194329012" style="zoom:80%;"></p>
 </li>
-<li><p>生成静态页面—–在以上文件夹的public中</p>
+<li><p>生成静态页面——-在以上文件夹的public中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>启动本地服务器—–<code>浏览器输入：http://localhost:4000/</code></p>
+<li><p>启动本地服务器——-<code>浏览器输入：http://localhost:4000/</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>关闭本地服务器—–<code>Ctrl+c</code></p>
+<li><p>关闭本地服务器——-<code>Ctrl+c</code></p>
 <p><strong>以上命令都是在git bash，也就写git命令的地方执行。执行完以上操作，基本上就完成了本地hexo的搭建，但是他那个界面我不太喜欢，所以还是参考大神博客修改了一番，接下来就开始漫长的博客主题设置模块</strong></p>
 </li>
 </ul>
 <h2 id="博客主题配置"><a href="#博客主题配置" class="headerlink" title="博客主题配置"></a>博客主题配置</h2><h3 id="克隆别人的主题"><a href="#克隆别人的主题" class="headerlink" title="克隆别人的主题"></a>克隆别人的主题</h3><p>在刚刚hexo init的项目根目录下找到themes文件夹，进去右击git bash，在此处clone别人的github中的主题，我用的是hexo-theme-next，后面有喜欢的主题我也会试着修改一下，暂时先用着这个，简洁清新，很不错~。当然还有很多好看的主题可以到这个页面<code>https://hexo.io/themes/</code>，点击一个喜欢的主题，然后进去点击人家的github链接，复制github中的链接同样的命令克隆到themes文件夹下即可。    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git</span><br></pre></td></tr></table></figure>
-
 <p>  下载可能需要等一会，这个等候是在自己的承受范围的哈哈哈，毕竟github是国外的，速度比较慢。下载完在themes文件夹下会多出一个文件夹，建议把这些文件夹先搞明白，不管我们写什么项目，先把常用的文件夹弄清楚我觉得是很有必要的，虽然我一开始被弄得有点乱，但是现在回想起来好像也就那几个目录常用。</p>
 <h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><ul>
 <li><p>现在要回到刚刚hexo init的根目录下，然后用记事本打开_config.yml文件，我是用的nodepad++打开的，有高亮而且格式不会乱。这个yml接下来会常用到，毕竟是配置文件，和springboot中的配置文件一样，之前了解过，在启动的时候会自己加载。</p>
 </li>
 <li><p>然后notepad++中<code>Ctrl+f</code>，搜索theme，然后修改为刚刚的克隆的主题的名称</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414200852111.png" alt="image-20200414200852111" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414200852111.png" alt="image-20200414200852111" style="zoom:80%;"></p>
 </li>
 </ul>
 <h3 id="切换主题风格"><a href="#切换主题风格" class="headerlink" title="切换主题风格"></a>切换主题风格</h3><ul>
 <li><p>这个主题包中应该是自带了几种风格的，进入到这个包中，可以看到如下文件，当然也并不是全部用得到。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414201943868.png" alt="image-20200414201943868" style="zoom: 67%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414201943868.png" alt="image-20200414201943868" style="zoom: 67%;"></p>
 </li>
 <li><p>进入配置文件修改主题风格，用notepad++打开改目录下的_config.yml，<strong>建议notepad++在整个过程中就不要关闭了，而且要记住这两个配置文件，哪个是项目根目录的配置文件，哪个是克隆的主题包的配置文件。</strong></p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414203008492.png" alt="image-20200414203008492" style="zoom:67%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414203008492.png" alt="image-20200414203008492" style="zoom:67%;"></p>
 </li>
 <li><p>然后修改主题风格如下，人家包中就注释好了几种，只要稍微改一下就好了，直接<code>Ctrl+f</code>搜索<code>scheme</code>，这里我用的是下面的风格</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414203200798.png" alt="image-20200414203200798" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414203200798.png" alt="image-20200414203200798" style="zoom:80%;"></p>
 </li>
 </ul>
 <h3 id="博客左侧导航栏设置"><a href="#博客左侧导航栏设置" class="headerlink" title="博客左侧导航栏设置"></a>博客左侧导航栏设置</h3><ul>
 <li>进入根目录的_config.yml，打开后在最上面可以修改博客的导航栏</li>
 </ul>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414204645233.png" alt="image-20200414204645233" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414204645233.png" alt="image-20200414204645233" style="zoom:80%;"></p>
 <ul>
 <li><p>注意一下language是切换语言为中文的，其他的直接看下效果就好了</p>
 </li>
@@ -362,13 +355,10 @@
 <p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414205701409.png" alt="image-20200414205701409"></p>
 </li>
 <li><p>然后到<code>MyBlog\themes\hexo-theme-next</code>主题文件夹下的_config.xml中，<code>Ctrl+f</code>搜索menu，然后把categories一行取消注释，也就是去掉前面的#。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414210210966.png" alt="image-20200414210210966" style="zoom:80%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414210210966.png" alt="image-20200414210210966" style="zoom:80%;"></p>
 </li>
-<li><p>将文章添加到分类—-后面会详细说一下发布文章的整个步骤，这就先提一下，也就是在md文档的最顶端添加一行即可。</p>
+<li><p>将文章添加到分类——后面会详细说一下发布文章的整个步骤，这就先提一下，也就是在md文档的最顶端添加一行即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories: 建站</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ul>
 </li>
@@ -381,51 +371,43 @@
 <p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414210713648.png" alt="image-20200414210713648"></p>
 </li>
 <li><p>然后到主题文件夹下的配置文件中取消注释的tags一行即可</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414210821050.png" alt="image-20200414210821050" style="zoom:80%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414210821050.png" alt="image-20200414210821050" style="zoom:80%;"></p>
 </li>
 <li><p>给文章添加标签，需要注意文章可能有多个标签，所以要用以下方式,记得-后面有个空格！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">	- Hexo</span><br><span class="line">	- Github</span><br><span class="line">	- 腾讯云域名</span><br><span class="line">	- Windows</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加到文章的标签样式，默认标签在文章最下面，标签前面有一个#，要改成一个图标才好看，所以要进去主题文件夹下<code>\MyBlog\themes\hexo-theme-next\layout\_macro</code>，打开post.swig文件，这个文件就类似于我们的HTML文件，进去后<code>Ctrl+f</code>搜索<code>tag_indicate</code>,这里不知道为啥他用了if判断，我根据我的直觉，直接把带有#的那部分删掉了，也就是一出来就让他显示那个图标签的图标就好。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414225232228.png" alt="image-20200414225232228" style="zoom: 67%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414225232228.png" alt="image-20200414225232228" style="zoom: 67%;"></p>
 <h4 id="站内搜索专栏"><a href="#站内搜索专栏" class="headerlink" title="站内搜索专栏"></a><strong>站内搜索专栏</strong></h4></li>
 <li><p>这个地方按照别人的博客来搞，最后部署的时候竟然会出现以下问题，显示乱了，在本地访问是没有问题的。<strong>可能是因为我安装的时候不是在根目录下安装的插件</strong></p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414212415442.png" alt="image-20200414212415442" style="zoom:67%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414212415442.png" alt="image-20200414212415442" style="zoom:67%;"></p>
 <p><strong>解决方法:</strong>在hexo init的项目根目录下，按住shift键右击鼠标，然后在这里打开powershell命令行，然后执行下面的命令，安装站内搜索插件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414212727263.png" alt="image-20200414212727263"></p>
 </li>
 <li><p>按装好了后在项目根目录的_config.yml文件的最下面添加下面的代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">limit: 10000</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后进入主题文件夹的_config.yml文件，<code>Ctrl+f</code>搜索<code>local_search</code>，设置enable为true</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414213131759.png" alt="image-20200414213131759" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414213131759.png" alt="image-20200414213131759" style="zoom:80%;"></p>
 <h4 id="个人头像设置"><a href="#个人头像设置" class="headerlink" title="个人头像设置"></a><strong>个人头像设置</strong></h4></li>
 <li><p>打开主题文件夹下的_config.yml,然后<code>Ctrl+f</code>搜索<code>avatar</code>，然后把一个头像链接替换即可。</p>
 </li>
 <li><p><strong><font style="color:red;">这里头像链接的一定要注意</font></strong></p>
 <p>需要在hexo init项目根目录的source文件夹下新建一个images文件夹，然后把图片放到里面，然后在填写路径的时候，直接写相对路径<code>&quot;/images/1.jpg&quot;</code>，</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414230547359.png" alt="image-20200414230547359" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414230547359.png" alt="image-20200414230547359" style="zoom:80%;"></p>
 <p>我通过调试工具发现，开启服务器后，<code>http://localhost:4000/</code>所请求到的文件夹就是项目根目录的source文件夹，所以上面直接从images目录写就好了。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414230705922.png" alt="image-20200414230705922" style="zoom:80%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414230705922.png" alt="image-20200414230705922" style="zoom:80%;"></p>
 </li>
 <li><p>给头像加样式，设置旋转以及圆角(因为我的头像是长方形，所以就不设置圆角了)，进入主题文件夹下的<code>\MyBlog\themes\hexo-theme-next\source\css\_common\components</code>目录，打开<code>components.styl</code>，在这里需要解释一波，这里的.styl文件，就和HTML的样式表文件.css文件是同样的效果！然后我们在这个文件下面加入下面的代码，就可以实现圆角和hover时旋转360°了。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line">  <span class="comment">/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span></span><br><span class="line"><span class="comment">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@-moz-keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<p><strong>最后重启服务器，可以看到经过以上配置后，博客左侧导航栏的初步样式，当然也可以边设置边重新启动来看效果。重启的步骤就是先<code>Ctrl+c</code>关闭服务器，如果正在运行的话，然后hexo g重新生成静态文件，最后hexo s启动服务器，以上两个命令如果没有效果可以先hexo clean一波，然后再试</strong>。效果如下：</p>
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414231818624.png" alt="image-20200414231818624" style="zoom:67%;"></p>
+<h3 id="博客底部设置"><a href="#博客底部设置" class="headerlink" title="博客底部设置"></a>博客底部设置</h3></li>
 </ul>
-<p>  <strong>最后重启服务器，可以看到经过以上配置后，博客左侧导航栏的初步样式，当然也可以边设置边重新启动来看效果。重启的步骤就是先<code>Ctrl+c</code>关闭服务器，如果正在运行的话，然后hexo g重新生成静态文件，最后hexo s启动服务器，以上两个命令如果没有效果可以先hexo clean一波，然后再试</strong>。效果如下：</p>
-  <img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414231818624.png" alt="image-20200414231818624" style="zoom:67%;">
-###  博客底部设置
-
 <h4 id="去掉底部自带的Hexo链接"><a href="#去掉底部自带的Hexo链接" class="headerlink" title="去掉底部自带的Hexo链接"></a>去掉底部自带的Hexo链接</h4><ul>
 <li><p>打开<code>MyBlog\themes\hexo-theme-next\layout\_partials</code>下的footer.swig，这个文件就相当于html文件，然后我是把下面那部分内容去掉了</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414235113905.png" alt="image-20200414235113905" style="zoom:80%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414235113905.png" alt="image-20200414235113905" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="网站底部字数统计设置"><a href="#网站底部字数统计设置" class="headerlink" title="网站底部字数统计设置"></a>网站底部字数统计设置</h4><ul>
@@ -434,7 +416,6 @@
 </li>
 <li><p>打开<code>MyBlog\themes\hexo-theme-next\layout\_partials</code>下的footer.swig，在文末添加下面的代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"powered-by"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-count"</span>&gt;</span>博客全站共&#123;&#123; totalcount(site) &#125;&#125;字<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <h4 id="网站底部站点访问量和访问人数"><a href="#网站底部站点访问量和访问人数" class="headerlink" title="网站底部站点访问量和访问人数"></a>网站底部站点访问量和访问人数</h4><p>​        <strong>需要注意的是，访问次数和浏览量在本地服务器会出现次数非常大的状况，这是小问题，只要部署在github之后，就不会有这个问题啦</strong></p>
@@ -443,9 +424,7 @@
 </li>
 <li><p>然后打开<code>MyBlog\themes\hexo-theme-next\layout\_partials</code>下的footer.swig，在文末添加下面的代码，<strong>这段代码加在字数统计的上面</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"powered-by"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-user-md"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></span><br><span class="line">    本站访问量:<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span></span><br><span class="line">    本站总访客量：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414235846523.png" alt="image-20200414235846523" style="zoom: 67%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200414235846523.png" alt="image-20200414235846523" style="zoom: 67%;"></p>
 </li>
 </ul>
 <h3 id="文章阅读次数设置"><a href="#文章阅读次数设置" class="headerlink" title="文章阅读次数设置"></a>文章阅读次数设置</h3><p><strong>我参考的博客中的方法是不行的</strong>，而且我查阅了很多博客几乎都是这样，都不行。也就是说<strong>不用把busuanzi_count:设置为true</strong>，只是用HTML的代码就可以实现了。</p>
@@ -457,21 +436,18 @@
 <li><p>复制github仓库的链接</p>
 </li>
 <li><p>打开项目根目录的_config.yml文件，<code>Ctrl+f</code>搜索<code>deploy</code>，<strong>tpye</strong> 设置为 <strong>git</strong>，<strong>repo</strong> 则设置为刚刚新建的远程仓库链接。</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415003907761.png" alt="image-20200415003907761" style="zoom:80%;">
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415003907761.png" alt="image-20200415003907761" style="zoom:80%;"></p>
 </li>
 <li><p>然后在项目根目录下安装插件，<strong>记住一定是根目录！！！前面好几处错误都不是根目录导致的。</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后在根目录下执行代码部署到github</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #这句是清除所有本地的静态文件</span><br><span class="line">hexo g  #再生成所有静态文件</span><br><span class="line">hexo d  #部署到远程仓库</span><br></pre></td></tr></table></figure>
-
 <p>然后就可以看到github仓库中有了内容，但是这样还不行，这样访问链接的话是没有一点样式的，还需要在本地hexo项目根目录下的_config.ym文件中，<code>Ctrl+f</code>搜索url，然后把github仓库的setting中的链接填写到下面的位置</p>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004808091.png" alt="image-20200415004808091" style="zoom: 50%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004808091.png" alt="image-20200415004808091" style="zoom: 50%;"></p>
 </li>
 </ul>
-<img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004858384.png" alt="image-20200415004858384" style="zoom: 67%;">
-
+<p><img src="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/image-20200415004858384.png" alt="image-20200415004858384" style="zoom: 67%;"></p>
 <ul>
 <li>然后再重新部署整个项目，即可看到成功搭建完成了！！！最后需要注意，当你hexo d之后会发现自己的网站并没有及时更新，这时候可以再hexo d一遍，多刷新几下网站就出来啦！</li>
 </ul>
@@ -597,7 +573,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地搭建Hexo步骤"><span class="nav-number">2.</span> <span class="nav-text">本地搭建Hexo步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm安装hexo"><span class="nav-number">2.1.</span> <span class="nav-text">npm安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化hexo"><span class="nav-number">2.2.</span> <span class="nav-text">初始化hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客主题配置"><span class="nav-number">3.</span> <span class="nav-text">博客主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆别人的主题"><span class="nav-number">3.1.</span> <span class="nav-text">克隆别人的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题"><span class="nav-number">3.2.</span> <span class="nav-text">配置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换主题风格"><span class="nav-number">3.3.</span> <span class="nav-text">切换主题风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客左侧导航栏设置"><span class="nav-number">3.4.</span> <span class="nav-text">博客左侧导航栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类专栏"><span class="nav-number">3.4.1.</span> <span class="nav-text">分类专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签专栏"><span class="nav-number">3.4.2.</span> <span class="nav-text">标签专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#站内搜索专栏"><span class="nav-number">3.4.3.</span> <span class="nav-text">站内搜索专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人头像设置"><span class="nav-number">3.4.4.</span> <span class="nav-text">个人头像设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉底部自带的Hexo链接"><span class="nav-number">3.4.5.</span> <span class="nav-text">去掉底部自带的Hexo链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站底部字数统计设置"><span class="nav-number">3.4.6.</span> <span class="nav-text">网站底部字数统计设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站底部站点访问量和访问人数"><span class="nav-number">3.4.7.</span> <span class="nav-text">网站底部站点访问量和访问人数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读次数设置"><span class="nav-number">3.5.</span> <span class="nav-text">文章阅读次数设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github远程仓库"><span class="nav-number">4.</span> <span class="nav-text">部署到github远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github仓库"><span class="nav-number">4.1.</span> <span class="nav-text">创建github仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接到本地hexo"><span class="nav-number">4.2.</span> <span class="nav-text">链接到本地hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文参考链接"><span class="nav-number">6.</span> <span class="nav-text">本文参考链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地搭建Hexo步骤"><span class="nav-number">2.</span> <span class="nav-text">本地搭建Hexo步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm安装hexo"><span class="nav-number">2.1.</span> <span class="nav-text">npm安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化hexo"><span class="nav-number">2.2.</span> <span class="nav-text">初始化hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客主题配置"><span class="nav-number">3.</span> <span class="nav-text">博客主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆别人的主题"><span class="nav-number">3.1.</span> <span class="nav-text">克隆别人的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题"><span class="nav-number">3.2.</span> <span class="nav-text">配置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换主题风格"><span class="nav-number">3.3.</span> <span class="nav-text">切换主题风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客左侧导航栏设置"><span class="nav-number">3.4.</span> <span class="nav-text">博客左侧导航栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类专栏"><span class="nav-number">3.4.1.</span> <span class="nav-text">分类专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签专栏"><span class="nav-number">3.4.2.</span> <span class="nav-text">标签专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#站内搜索专栏"><span class="nav-number">3.4.3.</span> <span class="nav-text">站内搜索专栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人头像设置"><span class="nav-number">3.4.4.</span> <span class="nav-text">个人头像设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客底部设置"><span class="nav-number">3.5.</span> <span class="nav-text">博客底部设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉底部自带的Hexo链接"><span class="nav-number">3.5.1.</span> <span class="nav-text">去掉底部自带的Hexo链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站底部字数统计设置"><span class="nav-number">3.5.2.</span> <span class="nav-text">网站底部字数统计设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站底部站点访问量和访问人数"><span class="nav-number">3.5.3.</span> <span class="nav-text">网站底部站点访问量和访问人数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读次数设置"><span class="nav-number">3.6.</span> <span class="nav-text">文章阅读次数设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github远程仓库"><span class="nav-number">4.</span> <span class="nav-text">部署到github远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github仓库"><span class="nav-number">4.1.</span> <span class="nav-text">创建github仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接到本地hexo"><span class="nav-number">4.2.</span> <span class="nav-text">链接到本地hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文参考链接"><span class="nav-number">6.</span> <span class="nav-text">本文参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -613,7 +589,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -626,7 +602,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -686,7 +662,7 @@
 
 <div class="theme-info" style="color:black;">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.3k字</span>
+  <span class="post-count">博客全站共8k字</span>
 </div>
 
         
@@ -739,6 +715,8 @@
 
 
 
+
+  
 
   
 
