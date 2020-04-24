@@ -29,18 +29,28 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
+  <meta name="description" content="Intent是android中非常重要的一个类，本文旨在深入学习了解该类，对Intent类的六个属性(Action、Data、Category、Extra、Component、Flag)有一定了解，学会利用这些属性的配合，可以实现调用系统的组件，如打开系统联系人、打电话、发短信、打开浏览器、播放音乐等，也可以利用该类可以在Activity之间传递数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入了解Intent">
 <meta property="og:url" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
+<meta property="og:description" content="Intent是android中非常重要的一个类，本文旨在深入学习了解该类，对Intent类的六个属性(Action、Data、Category、Extra、Component、Flag)有一定了解，学会利用这些属性的配合，可以实现调用系统的组件，如打开系统联系人、打电话、发短信、打开浏览器、播放音乐等，也可以利用该类可以在Activity之间传递数据。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423165652289.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423165910011.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170056495.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170147995.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170350296.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173522234.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173548963.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173706410.png">
+<meta property="og:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173712997.png">
 <meta property="article:published_time" content="2020-04-23T08:20:33.000Z">
-<meta property="article:modified_time" content="2020-04-23T08:42:06.336Z">
+<meta property="article:modified_time" content="2020-04-23T09:38:53.221Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423165652289.png">
 
 <link rel="canonical" href="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/">
 
@@ -223,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-23 16:20:33 / 修改时间：16:42:06" itemprop="dateCreated datePublished" datetime="2020-04-23T16:20:33+08:00">2020-04-23</time>
+              <time title="创建时间：2020-04-23 16:20:33 / 修改时间：17:38:53" itemprop="dateCreated datePublished" datetime="2020-04-23T16:20:33+08:00">2020-04-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,6 +253,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
+            <div class="post-description">Intent是android中非常重要的一个类，本文旨在深入学习了解该类，对Intent类的六个属性(Action、Data、Category、Extra、Component、Flag)有一定了解，学会利用这些属性的配合，可以实现调用系统的组件，如打开系统联系人、打电话、发短信、打开浏览器、播放音乐等，也可以利用该类可以在Activity之间传递数据。</div>
 
         </div>
       </header>
@@ -253,7 +264,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　Intent是一个动作的完整描述，包含了产生组件、接收组件和传递数据信息。并且，Intent利用消息实现应用程序之间的交互机制，这种消息描述了应用中一次操作的动作、数据以及附加数据，系统通过该Intent的描述负责找到对应的组件，并将Intent传递给调用的组件，完成组件的调用。</p>
+<h2 id="Intent属性"><a href="#Intent属性" class="headerlink" title="Intent属性"></a>Intent属性</h2><p>　　Intent由动作、数据、分类、类型、组件和扩展信息等内容组成，每个组成都由相应的属性进行表示，并提供设置和获取相应属性的方法。如下图所示：</p>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423165652289.png" alt="image-20200423165652289" style="zoom: 67%;"></p>
+<h3 id="Action属性"><a href="#Action属性" class="headerlink" title="Action属性"></a>Action属性</h3><p>　　Action属性用于描述Intent要完成的动作，对要执行的动作进行简单的描述。Intent类定义了一系列Action属性常量，用来标识一套标准动作，如ACTION_CALL（打电话）、ACTION_EDIT（编辑）等。</p>
+<p>　　<font style="color:red;"><strong>注意：action只是一个普通的字符串，代表Intent要完成的一个抽象“动作”，而具体由哪个组件来完成，Intent并不负责！就是仅仅知道会有这个动作，谁来完成这个动作那就要交给Intent-filter来进行筛选了！根据我的理解，这个Intent应该就是起到一个中介的作用吧！</strong></font></p>
+<p>以下是一些action属性常量：</p>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423165910011.png" alt="image-20200423165910011"></p>
+<h3 id="Data-Type属性"><a href="#Data-Type属性" class="headerlink" title="Data/Type属性"></a>Data/Type属性</h3><p>　　Data属性是执行动作的URI和MIME类型。通常用来向Action属性提供操作的数据，接受一个URI对象，URI的格式：scheme://host:post/path 参数依次为：协议头、主机、端口、路径；</p>
+<p>　　Type通常用于指定Data所指定的Uri对应的MIME类型，比如能够显示图片数据的组件不应该用来播放音频文件，可以是自定义的MIME类型，只要符合abc/xyz格式的字符串就可以了。</p>
+<p>Data常量如下：</p>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170056495.png" alt="image-20200423170056495"></p>
+<p>Action和Data匹配使用，不同的Action由不同的Data数据指定</p>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170147995.png" alt="image-20200423170147995"></p>
+<h3 id="Category属性"><a href="#Category属性" class="headerlink" title="Category属性"></a>Category属性</h3><p>Category属性指明一个执行Action的分类。</p>
+<font style="color:red;">**注意：同样是普通的字符串，Category用于为Action提供额外的附加类别信息，两者通常结合使用，一个Intent对象只能有一个Action，但是能有多个Category。**
+</font>
+
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423170350296.png" alt="image-20200423170350296"></p>
+<h3 id="Component属性"><a href="#Component属性" class="headerlink" title="Component属性"></a>Component属性</h3><p>　　该属性用于指明Intent目标组件的类名称。通常Android会根据Intent包含的其他属性的信息，比如Action、 Data/Type、 Category 进行查找，最终找到一个与之匹配的目标组件。但是,如果指定了Component这个属性，Intent 则会直接根据组件名查找到相应的组件,而不再执行上述查找过程。<strong>指定Component属性后, Intent的其他属性都是可选的。</strong></p>
+<h3 id="Extra属性"><a href="#Extra属性" class="headerlink" title="Extra属性"></a>Extra属性</h3><p>　　该属性用于添加附加信息，<strong>通常用于多个Action之间的数据交换</strong>，Extras属性是一个Bundle对象，通过键值对进行数据存储。下面介绍如何利用Intent在activity之间传递数据部分会详细介绍并举例实现。</p>
+<h3 id="Flag属性"><a href="#Flag属性" class="headerlink" title="Flag属性"></a>Flag属性</h3><p>表示不同来源的标记，flag可以指导系统以何种方式启动一个activity、是否将启动的activity放在该应用的任务栈中等等。常用flags如下：</p>
+<p>​    <strong>FLAG_ACTIVITY_NEW_TASK：</strong>设置这个标记位，是为 Activity 指定 “singleTask” 启动模式，它的作用和在清单文件中指定该启动模式的效果一样。</p>
+<p>​    <strong>FLAG_ACTIVITY_SINGLE_TOP：</strong>设置这个标记位，是为 Activity 指定 “singleTop” 启动模式，它的作用和在清单文件中指定该启动模式的效果一样。</p>
+<p>​    <strong>FLAG_ACTIVITY_CLEAR_TOP：</strong>具有此标记位的 Activity，在它启动时，在同一个任务栈中所有位于它上面的 Activity 都要出栈。</p>
+<p>​    <strong>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS：</strong>具有这个标记的 Activity 不会出现在历史 Activity 的列表中。它等同于在清单文件中指定 Activity 的属性android:excludeFromRecents=“true”</p>
+<h2 id="Intent的类别"><a href="#Intent的类别" class="headerlink" title="Intent的类别"></a>Intent的类别</h2><p>　　根据Intent寻找目标组件时所采用的方式不同，可以将Intent分为两类：显示Intent和隐式Intent。</p>
+<h3 id="显示Intent"><a href="#显示Intent" class="headerlink" title="显示Intent"></a>显示Intent</h3><p>　　显示Intent 通过直接指定组件来实现，常用方法有setComponent(、 setClassName0或setClass()，如下示例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">findViewById(R.id.open).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                startActivity(<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,UpdateUi<span class="class">.<span class="keyword">class</span>))</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注意：显式Intent直接用组件的名称定义目标组件，这种方式很直接。但是由于开发人员往往并不清楚别的应用程序的组件名称，因此，显式Intent更多用于在应用程序内部传递消息。比如在某应用程序内，一个Activity启动一个Service。</strong></p>
+<h3 id="隐式Intent"><a href="#隐式Intent" class="headerlink" title="隐式Intent"></a>隐式Intent</h3><p>　　隐式Intent,这种方式通过Intent Filter过滤实现,过滤时通常根据Action、Data和Category属性进行匹配查找。Android提供了两种生成Intent Filter的方式: 一种是通过IntentFilter类生成;另一种通过在配置文件AndroidManifest.xml中定义<intent-filter>元素生成。在AndroidManifest.xml配置文件中，Intent Filter以<intent filter>元素来指定。一个组件中可以有多个<intent filter>元素,每个<intent- filter>元素描述不同的能力。</intent-></intent></intent></intent-filter></p>
+<p>　　<strong>注意：它更广泛地用于在不同应用程序之间传递消息，由于没有明确的目标组件名称，所以必须由Android系统帮助应用程序寻找与Intent请求意图最匹配的组件。</strong></p>
+<p><strong>一个通过隐式Intent启动不同应用程序的activity的例子：</strong></p>
+<ul>
+<li><strong>首先要在一个应用程序中先设置好action</strong></li>
+</ul>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173522234.png" alt="image-20200423173522234"></p>
+<ul>
+<li><strong>然后在另一个应用程序里通过完整的action的name来启动。</strong></li>
+</ul>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173548963.png" alt="image-20200423173548963" style="zoom:150%;"> </p>
+<ul>
+<li><strong>启动时要将两个应用程序都打开。</strong></li>
+</ul>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173706410.png" alt="image-20200423173706410"></p>
+<p><img src="/2020/04/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Intent/image-20200423173712997.png" alt="image-20200423173712997"></p>
+<ul>
+<li><strong>在另一个activity上禁止启动的属性android:exported=”false”，则可以拒绝启动，并抛出异常，这时候可以捕获异常并弹出提示。</strong></li>
+</ul>
+<h2 id="利用Intent在Activity之间传递数据"><a href="#利用Intent在Activity之间传递数据" class="headerlink" title="利用Intent在Activity之间传递数据"></a>利用Intent在Activity之间传递数据</h2><h3 id="Intent传递简单数据"><a href="#Intent传递简单数据" class="headerlink" title="Intent传递简单数据"></a>Intent传递简单数据</h3><p>　　可以直接通过调用Intent的putExtra()方法存入数据，然后在通过getIntent()获得Intent后调用getXxxExtra获得 对应类型的数据；传递多个数据的话，可以使用Bundle对象作为容器，通过调用Bundle的putXxx先将数据存储到Bundle中，然后调用Intent的putExtras()方法将Bundle存入Intent中，然后调用getExtras()获得Bundle容器，最后调用其getXXX获取对应的数据！ </p>
+<p><strong>举例如下：</strong></p>
+
     </div>
 
     
@@ -341,6 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intent属性"><span class="nav-number">2.</span> <span class="nav-text">Intent属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Action属性"><span class="nav-number">2.1.</span> <span class="nav-text">Action属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Type属性"><span class="nav-number">2.2.</span> <span class="nav-text">Data&#x2F;Type属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Category属性"><span class="nav-number">2.3.</span> <span class="nav-text">Category属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Component属性"><span class="nav-number">2.4.</span> <span class="nav-text">Component属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extra属性"><span class="nav-number">2.5.</span> <span class="nav-text">Extra属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flag属性"><span class="nav-number">2.6.</span> <span class="nav-text">Flag属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intent的类别"><span class="nav-number">3.</span> <span class="nav-text">Intent的类别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示Intent"><span class="nav-number">3.1.</span> <span class="nav-text">显示Intent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式Intent"><span class="nav-number">3.2.</span> <span class="nav-text">隐式Intent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Intent在Activity之间传递数据"><span class="nav-number">4.</span> <span class="nav-text">利用Intent在Activity之间传递数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent传递简单数据"><span class="nav-number">4.1.</span> <span class="nav-text">Intent传递简单数据</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,7 +491,7 @@
 
 <div class="theme-info" style="color:black;">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.8k字</span>
+  <span class="post-count">博客全站共15.4k字</span>
 </div>
 
         
