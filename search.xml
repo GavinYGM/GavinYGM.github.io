@@ -4,7 +4,9 @@
     <title>python基础知识笔记</title>
     <url>/2020/04/18/python%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串拼接整数"><a href="#字符串拼接整数" class="headerlink" title="字符串拼接整数"></a>字符串拼接整数</h3><p>直接用+是不行的，需要先将int转为str在转换才行</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><p><strong>注意一点，负号是从右往左索引，最右边是-1</strong></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><p><a href="https://www.cnblogs.com/zqifa/p/python-list.html" target="_blank" rel="noopener">参考链接</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(k1*k2)]</span><br></pre></td></tr></table></figure>
+<h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><p><strong>注意一点，负号是从右往左索引，最右边是-1</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 索引从0开始，含左不含右</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[4]='</span>, mylist[<span class="number">4</span>])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[-4]='</span>, mylist[<span class="number">-4</span>])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[0:4]='</span>, mylist[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[:4]='</span>, mylist[:<span class="number">4</span>])<span class="comment">#这里是从最左端到4索引</span></span><br><span class="line">print( <span class="string">'[4:]='</span>, mylist[<span class="number">4</span>:])<span class="comment">#这里是从4索引到最右端</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[0:4:2]='</span>, mylist[<span class="number">0</span>:<span class="number">4</span>:<span class="number">2</span>])<span class="comment">#这里是从0~4每隔2索引</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[-5:-1:]='</span>, mylist[<span class="number">-5</span>:<span class="number">-1</span>:])<span class="comment">#从-5到-1索引全部</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'[-2::-1]='</span>, mylist[<span class="number">-2</span>::<span class="number">-1</span>])<span class="comment">#从-2到最左端，每隔-1索引</span></span><br></pre></td></tr></table></figure>
 <h3 id="range-使用"><a href="#range-使用" class="headerlink" title="range()使用"></a>range()使用</h3><p>生成一列数，但是类型是<code>&lt;class &#39;range&#39;&gt;</code>，所以在使用的时候需要根据自己所需的类型转换一下，下面有几种用法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#转换类型</span></span><br><span class="line">list(range(<span class="number">10</span>))</span><br><span class="line"><span class="comment">#使用列表生成式</span></span><br><span class="line">x=[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"><span class="comment">#用在循环中当索引</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
@@ -28,6 +30,8 @@
 <h3 id="字典的get和pop"><a href="#字典的get和pop" class="headerlink" title="字典的get和pop"></a>字典的get和pop</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">k.get(<span class="string">'edu'</span>, <span class="number">-1</span>) <span class="comment"># 通过dict提供的get方法，如果key不存在，可以返回None，或者自己指定的value</span></span><br><span class="line">k.pop(<span class="string">'like'</span>)<span class="comment">#删除字典元素</span></span><br></pre></td></tr></table></figure>
 <h3 id="用zip生成字典"><a href="#用zip生成字典" class="headerlink" title="用zip生成字典"></a>用zip生成字典</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">zl = zip((<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>), [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment"># zip可以将列表、元组、集合、字典‘缝合’起来</span></span><br></pre></td></tr></table></figure>
 <h3 id="字典的遍历方法"><a href="#字典的遍历方法" class="headerlink" title="字典的遍历方法"></a>字典的遍历方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一种</span></span><br><span class="line">heights = &#123;<span class="string">'Yao'</span>:<span class="number">226</span>, <span class="string">'Sharq'</span>:<span class="number">216</span>, <span class="string">'AI'</span>:<span class="number">183</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> heights:</span><br><span class="line">    <span class="keyword">print</span> (i, heights[i])<span class="comment">#单独打印i的话就只有key</span></span><br><span class="line"><span class="comment">#第二种</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> heights.items():</span><br><span class="line">    print(key, value)</span><br></pre></td></tr></table></figure>
+<h3 id="初始化字典"><a href="#初始化字典" class="headerlink" title="初始化字典"></a>初始化字典</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#dict3=dict(zip([0 for _ in range(k1*k2)],[0.0 for _ in range(k1*k2)]))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#setdefault,用法如下： dict.setdefault(key,[这里设置如果不存在想将值设置为啥，默认为None])</span></span><br></pre></td></tr></table></figure>
+<h3 id="给字典排序"><a href="#给字典排序" class="headerlink" title="给字典排序"></a>给字典排序</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>把另一个函数作为参数传入一个函数，这样的函数称为高阶函数。函数本身也可以赋值给变量，函数与其它对象具有同等地位。</p>
 <h3 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h3><p>将传入的函数依次作用到序列的每个元素，并把结果作为新的list返回。这个map函数的参数列表有两个，第一个是自己传一个函数，第二个是列表类型。</p>
 <p><strong>自己传入的函数只有一个参数</strong></p>
@@ -517,6 +521,58 @@ T(n)=\Theta(h(n))</script><p>它是对算法复杂度的准确估计——对于
         <tag>Hexo</tag>
         <tag>Github</tag>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OneNote突然打不开</title>
+    <url>/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/</url>
+    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>重点是要先卸载</strong></p>
+<ul>
+<li><p>卸载原来的OneNote。这个真的被我忽略了哦！看了网上一大堆，通过什么命令行就给卸载了，我真的是被坑了好久哦，就算执行命令也得先从电脑上卸载了哦，但是本人没有装360等电脑管家，然后从控制面板卸载也没找到，还好最后从左边的菜单栏右击可以删除了。</p>
+<p><img src="/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/image-20200502110131585.png" alt="image-20200502110131585" style="zoom:80%;"></p>
+</li>
+<li><p>卸载之后就可以执行命令行</p>
+<p>右键点击开始菜单&gt;&gt;搜索&gt;&gt;powershell&gt;&gt;右键管理员运行</p>
+<p>输入Get-AppxPackage <em>OneNote</em> | Remove-AppxPackage</p>
+</li>
+<li><p>然后进入应用商店重新安装就可以了。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows问题</category>
+      </categories>
+      <tags>
+        <tag>OneNote</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>numpy学习记录</title>
+    <url>/2020/05/01/numpy%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="numpy方法"><a href="#numpy方法" class="headerlink" title="numpy方法"></a>numpy方法</h2><h3 id="np-copysign-x-y"><a href="#np-copysign-x-y" class="headerlink" title="np.copysign(x,y)"></a>np.copysign(x,y)</h3><p>将数组y中各元素值的符号赋值给数组x对应元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Z = np.random.uniform(<span class="number">-10</span>,+<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">print(Z)</span><br><span class="line"><span class="keyword">print</span> (np.copysign(np.ceil(np.abs(Z)), Z))<span class="comment">#从零位对浮点数组做舍入</span></span><br><span class="line">print(np.floor(Z))</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d"><a href="#np-intersect1d" class="headerlink" title="np.intersect1d"></a>np.intersect1d</h3><p>找到两个数组中共同的元素</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">Z1 = np.random.randint(<span class="number">0</span>,<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">Z2 = np.random.randint(<span class="number">0</span>,<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">print(np.intersect1d(Z1,Z2))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>numpy</category>
+      </categories>
+      <tags>
+        <tag>numpy</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给任务排序---拓扑排序</title>
+    <url>/2020/05/11/%E7%BB%99%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">样例输入：</span></span><br><span class="line"><span class="comment">5 4</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">2 3</span></span><br><span class="line"><span class="comment">1 3</span></span><br><span class="line"><span class="comment">1 5</span></span><br><span class="line"><span class="comment">0 0</span></span><br><span class="line"><span class="comment">样例输出：</span></span><br><span class="line"><span class="comment">1 4 2 5 3</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法入门</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
