@@ -195,6 +195,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/20/PAT-A1042-Shuffling-Machine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
+      <meta itemprop="name" content="GavinYGM">
+      <meta itemprop="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习经验记录">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/PAT-A1042-Shuffling-Machine/" class="post-title-link" itemprop="url">PAT A1042 Shuffling Machine</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-20 17:51:03 / 修改时间：17:53:12" itemprop="dateCreated datePublished" datetime="2020-08-20T17:51:03+08:00">2020-08-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT%E7%94%B2%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">PAT甲级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h3><p><strong>解题思路：</strong>先写出所有的牌的顺序，存放到vector中，方便直接复制。然后int型数组存放随机洗牌的order，定义一个中间变量vector，循环题目给出的洗牌次数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">55</span>;</span><br><span class="line"><span class="built_in">string</span> strs[]=&#123;<span class="string">"-1"</span>,</span><br><span class="line">	<span class="string">"S1"</span>, <span class="string">"S2"</span>, <span class="string">"S3"</span>,<span class="string">"S4"</span>,<span class="string">"S5"</span>,<span class="string">"S6"</span>,<span class="string">"S7"</span>,<span class="string">"S8"</span>,<span class="string">"S9"</span>,<span class="string">"S10"</span>,<span class="string">"S11"</span>,<span class="string">"S12"</span>,<span class="string">"S13"</span>, </span><br><span class="line">	<span class="string">"H1"</span>, <span class="string">"H2"</span>, <span class="string">"H3"</span>,<span class="string">"H4"</span>,<span class="string">"H5"</span>,<span class="string">"H6"</span>,<span class="string">"H7"</span>,<span class="string">"H8"</span>,<span class="string">"H9"</span>,<span class="string">"H10"</span>,<span class="string">"H11"</span>,<span class="string">"H12"</span>,<span class="string">"H13"</span>,</span><br><span class="line">	<span class="string">"C1"</span>, <span class="string">"C2"</span>, <span class="string">"C3"</span>,<span class="string">"C4"</span>,<span class="string">"C5"</span>,<span class="string">"C6"</span>,<span class="string">"C7"</span>,<span class="string">"C8"</span>,<span class="string">"C9"</span>,<span class="string">"C10"</span>,<span class="string">"C11"</span>,<span class="string">"C12"</span>,<span class="string">"C13"</span>, </span><br><span class="line">	<span class="string">"D1"</span>, <span class="string">"D2"</span>, <span class="string">"D3"</span>,<span class="string">"D4"</span>,<span class="string">"D5"</span>,<span class="string">"D6"</span>,<span class="string">"D7"</span>,<span class="string">"D8"</span>,<span class="string">"D9"</span>,<span class="string">"D10"</span>,<span class="string">"D11"</span>,<span class="string">"D12"</span>,<span class="string">"D13"</span>, </span><br><span class="line">	<span class="string">"J1"</span>, <span class="string">"J2"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">vec</span><span class="params">(strs,strs+maxn)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">temp</span><span class="params">(maxn)</span></span>;</span><br><span class="line"><span class="keyword">int</span> order[maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">54</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;order[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">54</span>;j++)&#123;</span><br><span class="line">			temp[order[j]]=vec[j+<span class="number">1</span>];</span><br><span class="line">		&#125;	</span><br><span class="line">		vec=temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">54</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;vec[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;vec[<span class="number">54</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="算法笔记解法"><a href="#算法笔记解法" class="headerlink" title="算法笔记解法"></a>算法笔记解法</h3><p><strong>解题思路：</strong>初始化一个1~54的整型数组表示牌的初始顺序，定义一个char型数组表示五个前缀字母，最后根据洗牌后的顺序找到对应的字符串。每个牌对应一个序号是不变的，所以最后可以根据序号找到。<strong>时间快了2ms！</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">54</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> order[N];<span class="comment">//洗牌随机位置 </span></span><br><span class="line"><span class="keyword">int</span> deck[N+<span class="number">1</span>];<span class="comment">//牌的顺序 </span></span><br><span class="line"><span class="keyword">int</span> temp[N+<span class="number">1</span>];<span class="comment">//中间变量 </span></span><br><span class="line"><span class="keyword">char</span> ch[]=&#123;<span class="string">'S'</span>,<span class="string">'H'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'J'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;order[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//初始化牌的顺序</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">		deck[i]=i;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;<span class="comment">//根据随机位置调整牌的顺序 </span></span><br><span class="line">			temp[order[j]]=deck[j+<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N;j++)&#123;</span><br><span class="line">			deck[j]=temp[j];<span class="comment">//将中间变量复制给deck，方便重复洗牌 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//输出</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i!=<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c%d"</span>,ch[(deck[i]<span class="number">-1</span>)/<span class="number">13</span>],(deck[i]<span class="number">-1</span>)%<span class="number">13</span>+<span class="number">1</span>);</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+<div>
+      
+</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/18/PAT-A1052-Linked-List-Sorting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -905,84 +978,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/04/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7Gradle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
-      <meta itemprop="name" content="GavinYGM">
-      <meta itemprop="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习经验记录">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7Gradle/" class="post-title-link" itemprop="url">深入理解自动构建工具Gradle</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-23 15:38:44 / 修改时间：15:55:07" itemprop="dateCreated datePublished" datetime="2020-04-23T15:38:44+08:00">2020-04-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文主要是为了深入理解android中的自动构建工具gradle，是在初学android时老师让我们自行整理的知识点，现在整理到个人博客上。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7Gradle/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-      
-</div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1054,7 +1049,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1127,7 +1122,7 @@
 
 <div class="theme-info" style="color:black;">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.3k字</span>
+  <span class="post-count">博客全站共21.8k字</span>
 </div>
 
         
