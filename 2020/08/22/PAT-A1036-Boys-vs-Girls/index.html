@@ -29,30 +29,34 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习经验记录">
-<meta property="og:url" content="http://www.gavinygm.cn/page/3/index.html">
+  <meta name="description" content="给出N个同学的信息，输出女生中最高分数获得者的信息与男生分数中最低分数获得者的信息，并输出他们的差。如果不存在女生或者男生，则在对应获得者信息处输出Absent，同时分数差处输出NA。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT A1036 Boys vs Girls">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/22/PAT-A1036-Boys-vs-Girls/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
+<meta property="og:description" content="给出N个同学的信息，输出女生中最高分数获得者的信息与男生分数中最低分数获得者的信息，并输出他们的差。如果不存在女生或者男生，则在对应获得者信息处输出Absent，同时分数差处输出NA。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-22T10:41:18.000Z">
+<meta property="article:modified_time" content="2020-08-23T03:48:16.689Z">
 <meta property="article:author" content="GavinYGM">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.gavinygm.cn/page/3/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/22/PAT-A1036-Boys-vs-Girls/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>学习经验记录</title>
+  <title>PAT A1036 Boys vs Girls | 学习经验记录</title>
   
 
 
@@ -189,13 +193,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/04/16/%E7%BB%AA%E8%AE%BA/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/22/PAT-A1036-Boys-vs-Girls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -207,10 +212,9 @@
       <meta itemprop="name" content="学习经验记录">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/16/%E7%BB%AA%E8%AE%BA/" class="post-title-link" itemprop="url">数据结构---绪论</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          PAT A1036 Boys vs Girls
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -219,14 +223,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-16 16:53:06" itemprop="dateCreated datePublished" datetime="2020-04-16T16:53:06+08:00">2020-04-16</time>
+              <time title="创建时间：2020-08-22 18:41:18" itemprop="dateCreated datePublished" datetime="2020-08-22T18:41:18+08:00">2020-08-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-23 15:24:25" itemprop="dateModified" datetime="2020-04-23T15:24:25+08:00">2020-04-23</time>
+                <time title="修改时间：2020-08-23 11:48:16" itemprop="dateModified" datetime="2020-08-23T11:48:16+08:00">2020-08-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,11 +238,19 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C-C/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法C/C++</span></a>
+                  <a href="/categories/PAT%E7%94%B2%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">PAT甲级</span></a>
                 </span>
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">给出N个同学的信息，输出女生中最高分数获得者的信息与男生分数中最低分数获得者的信息，并输出他们的差。如果不存在女生或者男生，则在对应获得者信息处输出Absent，同时分数差处输出NA。</div>
 
         </div>
       </header>
@@ -249,16 +261,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>下决心系统地复习一遍数据结构与算法，并认真做好笔记，深入研究算法。本文主要是对算法效率度量的学习和理解。主要学习了什么是时间复杂度和渐进复杂度，以及渐进复杂度的三种记号分别代表了什么，然后学习了几种常见数量级的时间复杂度，并分析算法的执行效率。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/16/%E7%BB%AA%E8%AE%BA/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805453203030016" target="_blank" rel="noopener">题目链接</a></p>
+<p><strong>解题思路：</strong>设置三个同类型的自定义结构体变量，然后边读取边比较，找到对应的值，最后输出。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stu</span>&#123;</span></span><br><span class="line">	<span class="built_in">string</span> name;</span><br><span class="line">	<span class="keyword">char</span> gender;</span><br><span class="line">	<span class="built_in">string</span> id;</span><br><span class="line">	<span class="keyword">int</span> grade;</span><br><span class="line">&#125;temp,male,female;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//初始化</span></span><br><span class="line">	male.name=<span class="string">"Absent"</span>,male.gender=<span class="string">'M'</span>,male.id=<span class="string">"xxx"</span>,male.grade=<span class="number">110</span>;</span><br><span class="line">	female.name=<span class="string">"Absent"</span>,female.gender=<span class="string">'F'</span>,female.id=<span class="string">"xxx"</span>,female.grade=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> n;<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;temp.name&gt;&gt;temp.gender&gt;&gt;temp.id&gt;&gt;temp.grade;</span><br><span class="line">		<span class="keyword">if</span>(temp.gender==<span class="string">'M'</span>&amp;&amp;temp.grade&lt;male.grade)	male=temp;</span><br><span class="line">		<span class="keyword">if</span>(temp.gender==<span class="string">'F'</span>&amp;&amp;temp.grade&gt;female.grade) female=temp;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>(female.grade==<span class="number">-1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"Absent"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;female.name&lt;&lt;<span class="string">" "</span>&lt;&lt;female.id&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">if</span>(male.grade==<span class="number">110</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"Absent"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;male.name&lt;&lt;<span class="string">" "</span>&lt;&lt;male.id&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">if</span>(female.grade!=<span class="number">-1</span>&amp;&amp;male.grade!=<span class="number">110</span>) <span class="built_in">cout</span>&lt;&lt;female.grade-male.grade;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"NA"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -266,188 +272,65 @@
     
 <div>
       
-</div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/04/15/Abbott%E7%9A%84%E5%A4%8D%E4%BB%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
-      <meta itemprop="name" content="GavinYGM">
-      <meta itemprop="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习经验记录">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/15/Abbott%E7%9A%84%E5%A4%8D%E4%BB%87/" class="post-title-link" itemprop="url">Abbott的复仇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-15 14:00:14" itemprop="dateCreated datePublished" datetime="2020-04-15T14:00:14+08:00">2020-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-24 23:49:19" itemprop="dateModified" datetime="2020-04-24T23:49:19+08:00">2020-04-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">算法入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这是一道利用bfs求最短路的算法题目。题目大意是，输入起点、离开起点时的朝向、终点，然后求一条最短路。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/15/Abbott%E7%9A%84%E5%A4%8D%E4%BB%87/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/08/22/PAT-A1036-Boys-vs-Girls/">PAT A1036 Boys vs Girls</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
+  <p><span>发布时间:</span>2020年08月22日 - 18:08</p>
+  <p><span>最后更新:</span>2020年08月23日 - 11:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/22/PAT-A1036-Boys-vs-Girls/" title="PAT A1036 Boys vs Girls">http://www.gavinygm.cn/2020/08/22/PAT-A1036-Boys-vs-Girls/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/22/PAT-A1036-Boys-vs-Girls/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
 
-    
-    
-    
-<div>
+
+
       
 </div>
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
-      <meta itemprop="name" content="GavinYGM">
-      <meta itemprop="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习经验记录">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">个人博客建站过程</a>
-        </h2>
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-14 18:32:20" itemprop="dateCreated datePublished" datetime="2020-04-14T18:32:20+08:00">2020-04-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-23 16:15:12" itemprop="dateModified" datetime="2020-04-23T16:15:12+08:00">2020-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">建站</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天大概花费了一下午的时间，我终于把个人博客搞得像点样了。弄好了之后就迫不及待地写一篇博客练练手，因为这一下午建站的整个过程真的是让人想吐，遇到了好几个坑，搜了好多资料，众说纷纭，可能某个方法人家用着就ok，在我电脑上就是不成功，甚至有好几次都想得过且过不要了某个效果，还好最后坚持了下来，有点小欣喜！所以在此我把我自己建站过程从头到尾捋一遍，自己遇到的坑也会好好记录一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-<div>
-      
-</div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/21/PAT-A1065-A-B-and-C-64bit/" rel="prev" title="PAT A1065 A+B and C (64bit)">
+      <i class="fa fa-chevron-left"></i> PAT A1065 A+B and C (64bit)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
 
 
@@ -644,59 +527,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
