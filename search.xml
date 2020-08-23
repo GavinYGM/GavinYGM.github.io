@@ -886,4 +886,23 @@ T(n)=\Theta(h(n))</script><p>它是对算法复杂度的准确估计——对于
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PAT A1019 General Palindromic Number</title>
+    <url>/2020/08/23/PAT-A1019-General-Palindromic-Number/</url>
+    <content><![CDATA[<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805487143337984" target="_blank" rel="noopener">题目链接</a></p>
+<h3 id="误区："><a href="#误区：" class="headerlink" title="误区："></a>误区：</h3><blockquote>
+<p>一开始我错误的以为使用string就可以解决，没有看好题目中的b的范围，题目中b可以远大于10，所以输出的时候只能有数字，而且是可以大于10的，如果使用字符串，那么一个大于10的数就无法很好地表示。</p>
+</blockquote>
+<h3 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h3><blockquote>
+<p>求进制转换，可采用除b取余，然后倒序输出即可！使用int型数组来改写程序，首先要确定数组的大小，如果是int的最大值，那么除以b的最小值2的话，最多除以32次，所以数组可以开到110大小即可。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> nums[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,b,k=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;b;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">0</span>) nums[k++]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</span><br><span class="line">		nums[k]=n%b;</span><br><span class="line">		n/=b;</span><br><span class="line">		k++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">end</span>=k<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">bool</span> isP=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="built_in">end</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(nums[i]!=nums[<span class="built_in">end</span>-i]) isP=<span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isP) <span class="built_in">cout</span>&lt;&lt;<span class="string">"Yes"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"No"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">end</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i!=<span class="built_in">end</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;nums[i];</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>PAT甲级</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
