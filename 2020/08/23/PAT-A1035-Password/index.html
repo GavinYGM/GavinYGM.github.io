@@ -29,21 +29,21 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="要考虑是否超时，如果计算次数超时可以考虑放到数组中！使用动态规划的思想.">
+  <meta name="description" content="给定N个用户的姓名和密码，现在需要把密码中的‘1’改为‘@’、‘0’改为‘%’，‘l’改为‘L’，‘O’改为‘o’。求需要修改的密码个数以及对应用户的姓名和修改后的密码。如果不存在需要修改的密码，则根据单复数输出&quot;There is(are) N account(s) and no account is modified&quot;。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT A1046 Shortest Distance">
-<meta property="og:url" content="http://www.gavinygm.cn/2020/08/20/PAT-A1046-Shortest-Distance/index.html">
+<meta property="og:title" content="PAT A1035 Password">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/23/PAT-A1035-Password/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="要考虑是否超时，如果计算次数超时可以考虑放到数组中！使用动态规划的思想.">
+<meta property="og:description" content="给定N个用户的姓名和密码，现在需要把密码中的‘1’改为‘@’、‘0’改为‘%’，‘l’改为‘L’，‘O’改为‘o’。求需要修改的密码个数以及对应用户的姓名和修改后的密码。如果不存在需要修改的密码，则根据单复数输出&quot;There is(are) N account(s) and no account is modified&quot;。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-20T14:48:27.000Z">
-<meta property="article:modified_time" content="2020-08-20T15:37:41.599Z">
+<meta property="article:published_time" content="2020-08-23T10:32:32.000Z">
+<meta property="article:modified_time" content="2020-08-23T10:39:45.526Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.gavinygm.cn/2020/08/20/PAT-A1046-Shortest-Distance/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/23/PAT-A1035-Password/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>PAT A1046 Shortest Distance | 学习经验记录</title>
+  <title>PAT A1035 Password | 学习经验记录</title>
   
 
 
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/20/PAT-A1046-Shortest-Distance/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/23/PAT-A1035-Password/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PAT A1046 Shortest Distance
+          PAT A1035 Password
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-20 22:48:27 / 修改时间：23:37:41" itemprop="dateCreated datePublished" datetime="2020-08-20T22:48:27+08:00">2020-08-20</time>
+              <time title="创建时间：2020-08-23 18:32:32 / 修改时间：18:39:45" itemprop="dateCreated datePublished" datetime="2020-08-23T18:32:32+08:00">2020-08-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-            <div class="post-description">要考虑是否超时，如果计算次数超时可以考虑放到数组中！使用动态规划的思想.</div>
+            <div class="post-description">给定N个用户的姓名和密码，现在需要把密码中的‘1’改为‘@’、‘0’改为‘%’，‘l’改为‘L’，‘O’改为‘o’。求需要修改的密码个数以及对应用户的姓名和修改后的密码。如果不存在需要修改的密码，则根据单复数输出"There is(are) N account(s) and no account is modified"。</div>
 
         </div>
       </header>
@@ -255,10 +255,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h3><p><strong>解题思路：</strong>直接循环加起来求和，顺时针求1-3和3-1两部分的和，然后比较！暴力求解，最后一个测试用例超时，只得了17分。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> D[N],n,m,x,y;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">Node exits[M];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDist</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=start;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=n)&#123;</span><br><span class="line"><span class="comment">//		printf("%d %d\n",i,end);</span></span><br><span class="line">		 sum+=D[i];</span><br><span class="line">		i++;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;n)&#123;</span><br><span class="line">			i=i%n;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i==<span class="built_in">end</span>) <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;D[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;x,&amp;y);</span><br><span class="line">		exits[i].x=x;</span><br><span class="line">		exits[i].y=y;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	printf("----\n");</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line"><span class="comment">//		printf("%d %d\n",exits[i].x,exits[i].y);</span></span><br><span class="line">		<span class="keyword">int</span> a=getDist(exits[i].x,exits[i].y);</span><br><span class="line">		<span class="keyword">int</span> b=getDist(exits[i].y,exits[i].x);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,(a&lt;b?a:b)); </span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="算法笔记解法"><a href="#算法笔记解法" class="headerlink" title="算法笔记解法"></a>算法笔记解法</h3><p><strong>解题思路：</strong>将位置1到后面每一个节点的距离和保存到一个数组，然后dis(left,right)=最右边的值到1的距离减去最左边的值到1的距离，最后将结果和用总和sum减去该结果，也就是逆循环的结果进行比较，得出最终结果！</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,sum=<span class="number">0</span>,D[N],dis[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;D[i]);</span><br><span class="line">		sum+=D[i];</span><br><span class="line">		dis[i+<span class="number">1</span>]=sum;<span class="comment">//记录位置1到某节点距离 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">	<span class="keyword">int</span> left,right,temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;left,&amp;right);</span><br><span class="line">		<span class="keyword">if</span>(left&gt;right) temp=dis[left]-dis[right];</span><br><span class="line">		<span class="keyword">else</span> temp=dis[right]-dis[left];</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,temp&lt;(sum-temp)?temp:(sum-temp));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805454989803520" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
+<p>新建一个结构体，包含一个标志位flag，然后遍历结构体数组，修改对应字符，计数，并修改结构体标志位。</p>
+</blockquote>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>1、使用string&amp; 引用来替换结构体中的字符串变量，引用指向了这个地址，所以修改引用即可修改对应字符，并且写起来非常简洁！</p>
+<p>2、注意题目中的要求，N=1时要用单数，N&gt;1时要用复数形式。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1010</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Accout</span>&#123;</span></span><br><span class="line">	<span class="built_in">string</span> name,psw;</span><br><span class="line">	<span class="keyword">bool</span> flag;</span><br><span class="line">&#125;accs[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,k=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;accs[i].name&gt;&gt;accs[i].psw;</span><br><span class="line">		accs[i].flag=<span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">string</span>&amp; s=accs[i].psw;</span><br><span class="line">		<span class="keyword">bool</span> modi=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s.length();j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">'1'</span>) &#123;</span><br><span class="line">				s[j]=<span class="string">'@'</span>;modi=<span class="literal">true</span>;	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[j]==<span class="string">'0'</span>) &#123;</span><br><span class="line">				s[j]=<span class="string">'%'</span>;modi=<span class="literal">true</span>;	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[j]==<span class="string">'l'</span>) &#123;</span><br><span class="line">				s[j]=<span class="string">'L'</span>;modi=<span class="literal">true</span>;	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[j]==<span class="string">'O'</span>) &#123;</span><br><span class="line">				s[j]=<span class="string">'o'</span>;modi=<span class="literal">true</span>;	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(modi)&#123;</span><br><span class="line">			k++;</span><br><span class="line">			accs[i].flag=<span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(k==<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"There is %d account and no account is modified"</span>,n);	</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"There are %d accounts and no account is modified"</span>,n);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;k&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(accs[i].flag)&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;accs[i].name&lt;&lt;<span class="string">" "</span>&lt;&lt;accs[i].psw&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -273,12 +279,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/08/20/PAT-A1046-Shortest-Distance/">PAT A1046 Shortest Distance</a></p>
+  <p><span>本文标题:</span><a href="/2020/08/23/PAT-A1035-Password/">PAT A1035 Password</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
-  <p><span>发布时间:</span>2020年08月20日 - 22:08</p>
-  <p><span>最后更新:</span>2020年08月20日 - 23:08</p>
-  <p><span>原始链接:</span><a href="/2020/08/20/PAT-A1046-Shortest-Distance/" title="PAT A1046 Shortest Distance">http://www.gavinygm.cn/2020/08/20/PAT-A1046-Shortest-Distance/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/20/PAT-A1046-Shortest-Distance/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年08月23日 - 18:08</p>
+  <p><span>最后更新:</span>2020年08月23日 - 18:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/23/PAT-A1035-Password/" title="PAT A1035 Password">http://www.gavinygm.cn/2020/08/23/PAT-A1035-Password/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/23/PAT-A1035-Password/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -314,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/20/PAT-A1042-Shuffling-Machine/" rel="prev" title="PAT A1042 Shuffling Machine">
-      <i class="fa fa-chevron-left"></i> PAT A1042 Shuffling Machine
+    <a href="/2020/08/23/PAT-A1005-Spell-It-Right/" rel="prev" title="PAT A1005 Spell It Right">
+      <i class="fa fa-chevron-left"></i> PAT A1005 Spell It Right
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/21/PAT-A-1002-A-B-for-Polynomials/" rel="next" title="PAT A 1002 A+B for Polynomials">
-      PAT A 1002 A+B for Polynomials <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -379,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的解法"><span class="nav-number">1.</span> <span class="nav-text">我的解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法笔记解法"><span class="nav-number">2.</span> <span class="nav-text">算法笔记解法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
