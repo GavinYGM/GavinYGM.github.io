@@ -1001,4 +1001,25 @@ T(n)=\Theta(h(n))</script><p>它是对算法复杂度的准确估计——对于
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PAT A1077 Kuchiguse</title>
+    <url>/2020/08/23/PAT-A1077-Kuchiguse/</url>
+    <content><![CDATA[<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805390896644096" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
+<p>首先将所有行保存到一个字符串数组中，然后遍历除第一个以外的字符串，判断第一个字符串是否从后往前存在，如果不存在就去掉第一个字符串strs[0]的第一个字符，直到字符串中存在，然后再遍历下一个字符串！</p>
+</blockquote>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>1、读取一整行使用getline(cin,str);但是在读取前如果有一个整数n，需要使用getchar();或者getline先把末尾的回车符读掉。</p>
+<p>2、判断一个字符串是否在另一个字符串中，不能用find_last_of，这种是判断是否有某个相同的字符的！！！要用find或者rfind！find是从前往后，rfind是从后往前！！！</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="built_in">string</span> strs[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	getchar();<span class="comment">//读取n后面的回车符 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		getline(<span class="built_in">cin</span>,strs[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;<span class="comment">//遍历其他字符串		</span></span><br><span class="line">		<span class="keyword">while</span>(strs[j].rfind(strs[<span class="number">0</span>])==<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">			<span class="comment">//如果这个字符串没有相同后缀，就将第一个字符串第一个字符串删除</span></span><br><span class="line">			<span class="comment">//直到相等 </span></span><br><span class="line">			strs[<span class="number">0</span>].erase(strs[<span class="number">0</span>].<span class="built_in">begin</span>());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(strs[<span class="number">0</span>].length()==<span class="number">0</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"nai"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;strs[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PAT甲级</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>

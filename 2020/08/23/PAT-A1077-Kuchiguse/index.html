@@ -29,22 +29,21 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="昨天晚上OneNote突然打不开了，网上搜了一大堆的方法，最后终于解决，这确实令人有点慌张了，这里面可是记录了我上大学一来几乎所有的知识，所以这提醒我以后的笔记的多备份几个地方啊。">
+  <meta name="description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OneNote突然打不开">
-<meta property="og:url" content="http://www.gavinygm.cn/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/index.html">
+<meta property="og:title" content="PAT A1077 Kuchiguse">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="昨天晚上OneNote突然打不开了，网上搜了一大堆的方法，最后终于解决，这确实令人有点慌张了，这里面可是记录了我上大学一来几乎所有的知识，所以这提醒我以后的笔记的多备份几个地方啊。">
+<meta property="og:description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.gavinygm.cn/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/image-20200502110131585.png">
-<meta property="article:published_time" content="2020-05-02T02:54:05.000Z">
-<meta property="article:modified_time" content="2020-05-02T03:04:33.130Z">
+<meta property="article:published_time" content="2020-08-23T12:00:43.000Z">
+<meta property="article:modified_time" content="2020-08-23T12:09:13.992Z">
 <meta property="article:author" content="GavinYGM">
-<meta property="article:tag" content="OneNote">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.gavinygm.cn/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/image-20200502110131585.png">
 
-<link rel="canonical" href="http://www.gavinygm.cn/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/">
 
 
 <script id="page-configurations">
@@ -57,7 +56,7 @@
   };
 </script>
 
-  <title>OneNote突然打不开 | 学习经验记录</title>
+  <title>PAT A1077 Kuchiguse | 学习经验记录</title>
   
 
 
@@ -201,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -214,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OneNote突然打不开
+          PAT A1077 Kuchiguse
         </h1>
 
         <div class="post-meta">
@@ -225,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-02 10:54:05 / 修改时间：11:04:33" itemprop="dateCreated datePublished" datetime="2020-05-02T10:54:05+08:00">2020-05-02</time>
+              <time title="创建时间：2020-08-23 20:00:43 / 修改时间：20:09:13" itemprop="dateCreated datePublished" datetime="2020-08-23T20:00:43+08:00">2020-08-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">Windows问题</span></a>
+                  <a href="/categories/PAT%E7%94%B2%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">PAT甲级</span></a>
                 </span>
             </span>
 
@@ -245,7 +244,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-            <div class="post-description">昨天晚上OneNote突然打不开了，网上搜了一大堆的方法，最后终于解决，这确实令人有点慌张了，这里面可是记录了我上大学一来几乎所有的知识，所以这提醒我以后的笔记的多备份几个地方啊。</div>
+            <div class="post-description">给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”</div>
 
         </div>
       </header>
@@ -256,18 +255,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>重点是要先卸载</strong></p>
-<ul>
-<li><p>卸载原来的OneNote。这个真的被我忽略了哦！看了网上一大堆，通过什么命令行就给卸载了，我真的是被坑了好久哦，就算执行命令也得先从电脑上卸载了哦，但是本人没有装360等电脑管家，然后从控制面板卸载也没找到，还好最后从左边的菜单栏右击可以删除了。</p>
-<p><img src="/2020/05/02/OneNote%E7%AA%81%E7%84%B6%E6%89%93%E4%B8%8D%E5%BC%80/image-20200502110131585.png" alt="image-20200502110131585" style="zoom:80%;"></p>
-</li>
-<li><p>卸载之后就可以执行命令行</p>
-<p>右键点击开始菜单&gt;&gt;搜索&gt;&gt;powershell&gt;&gt;右键管理员运行</p>
-<p>输入Get-AppxPackage <em>OneNote</em> | Remove-AppxPackage</p>
-</li>
-<li><p>然后进入应用商店重新安装就可以了。</p>
-</li>
-</ul>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805390896644096" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
+<p>首先将所有行保存到一个字符串数组中，然后遍历除第一个以外的字符串，判断第一个字符串是否从后往前存在，如果不存在就去掉第一个字符串strs[0]的第一个字符，直到字符串中存在，然后再遍历下一个字符串！</p>
+</blockquote>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>1、读取一整行使用getline(cin,str);但是在读取前如果有一个整数n，需要使用getchar();或者getline先把末尾的回车符读掉。</p>
+<p>2、判断一个字符串是否在另一个字符串中，不能用find_last_of，这种是判断是否有某个相同的字符的！！！要用find或者rfind！find是从前往后，rfind是从后往前！！！</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="built_in">string</span> strs[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	getchar();<span class="comment">//读取n后面的回车符 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		getline(<span class="built_in">cin</span>,strs[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;<span class="comment">//遍历其他字符串		</span></span><br><span class="line">		<span class="keyword">while</span>(strs[j].rfind(strs[<span class="number">0</span>])==<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">			<span class="comment">//如果这个字符串没有相同后缀，就将第一个字符串第一个字符串删除</span></span><br><span class="line">			<span class="comment">//直到相等 </span></span><br><span class="line">			strs[<span class="number">0</span>].erase(strs[<span class="number">0</span>].<span class="built_in">begin</span>());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(strs[<span class="number">0</span>].length()==<span class="number">0</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"nai"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;strs[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -277,6 +273,35 @@
 <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/08/23/PAT-A1077-Kuchiguse/">PAT A1077 Kuchiguse</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
+  <p><span>发布时间:</span>2020年08月23日 - 20:08</p>
+  <p><span>最后更新:</span>2020年08月23日 - 20:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/23/PAT-A1077-Kuchiguse/" title="PAT A1077 Kuchiguse">http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
 
 
       
@@ -285,7 +310,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/OneNote/" rel="tag"><i class="fa fa-tag"></i> OneNote</a>
+              <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           </div>
 
         
@@ -294,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/01/numpy%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="prev" title="numpy学习记录">
-      <i class="fa fa-chevron-left"></i> numpy学习记录
+    <a href="/2020/08/23/PAT-A1035-Password/" rel="prev" title="PAT A1035 Password">
+      <i class="fa fa-chevron-left"></i> PAT A1035 Password
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/11/%E7%BB%99%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="next" title="给任务排序---拓扑排序">
-      给任务排序---拓扑排序 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -359,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">1.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
