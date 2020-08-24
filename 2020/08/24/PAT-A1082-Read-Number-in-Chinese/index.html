@@ -31,19 +31,19 @@
 
   <meta name="description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT A1077 Kuchiguse">
-<meta property="og:url" content="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/index.html">
+<meta property="og:title" content="PAT A1082 Read Number in Chinese">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/24/PAT-A1082-Read-Number-in-Chinese/index.html">
 <meta property="og:site_name" content="学习经验记录">
 <meta property="og:description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-23T12:00:43.000Z">
-<meta property="article:modified_time" content="2020-08-23T12:09:13.992Z">
+<meta property="article:published_time" content="2020-08-24T01:25:46.000Z">
+<meta property="article:modified_time" content="2020-08-24T03:50:01.408Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/24/PAT-A1082-Read-Number-in-Chinese/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>PAT A1077 Kuchiguse | 学习经验记录</title>
+  <title>PAT A1082 Read Number in Chinese | 学习经验记录</title>
   
 
 
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/24/PAT-A1082-Read-Number-in-Chinese/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PAT A1077 Kuchiguse
+          PAT A1082 Read Number in Chinese
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-23 20:00:43 / 修改时间：20:09:13" itemprop="dateCreated datePublished" datetime="2020-08-23T20:00:43+08:00">2020-08-23</time>
+              <time title="创建时间：2020-08-24 09:25:46 / 修改时间：11:50:01" itemprop="dateCreated datePublished" datetime="2020-08-24T09:25:46+08:00">2020-08-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,15 +255,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805390896644096" target="_blank" rel="noopener">题目链接</a></p>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805385053978624" target="_blank" rel="noopener">题目链接</a></p>
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
-<p>首先将所有行保存到一个字符串数组中，然后遍历除第一个以外的字符串，判断第一个字符串是否从后往前存在，如果不存在就去掉第一个字符串strs[0]的第一个字符，直到字符串中存在，然后再遍历下一个字符串！</p>
+<p>a</p>
 </blockquote>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
-<p>1、读取一整行使用getline(cin,str);但是在读取前如果有一个整数n，需要使用getchar();或者getline先把末尾的回车符读掉。</p>
-<p>2、判断一个字符串是否在另一个字符串中，不能用find_last_of，这种是判断是否有某个相同的字符的！！！要用find或者rfind！find是从前往后，rfind是从后往前！！！</p>
+<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><blockquote>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="built_in">string</span> strs[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	getchar();<span class="comment">//读取n后面的回车符 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		getline(<span class="built_in">cin</span>,strs[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;<span class="comment">//遍历其他字符串		</span></span><br><span class="line">		<span class="keyword">while</span>(strs[j].rfind(strs[<span class="number">0</span>])==<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">			<span class="comment">//如果这个字符串没有相同后缀，就将第一个字符串第一个字符串删除</span></span><br><span class="line">			<span class="comment">//直到相等 </span></span><br><span class="line">			strs[<span class="number">0</span>].erase(strs[<span class="number">0</span>].<span class="built_in">begin</span>());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(strs[<span class="number">0</span>].length()==<span class="number">0</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"nai"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;strs[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="我的代码"><a href="#我的代码" class="headerlink" title="我的代码"></a>我的代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> unit[]=&#123;<span class="string">"Fu"</span>,<span class="string">"Yi"</span>,<span class="string">"Qian"</span>,<span class="string">"Bai"</span>,<span class="string">"Shi"</span>,<span class="string">"Wan"</span>,<span class="string">"Qian"</span>,<span class="string">"Bai"</span>,<span class="string">"Shi"</span>&#125;;</span><br><span class="line"><span class="built_in">string</span> nums[]=&#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> f[<span class="number">10</span>]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">	<span class="keyword">int</span> len=s.length();</span><br><span class="line">	<span class="keyword">int</span> n; <span class="comment">//假装补全9个数 </span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">	n=<span class="number">9</span>-len+<span class="number">1</span>;<span class="comment">//0</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'-'</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"Fu "</span>;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;<span class="number">9</span>) <span class="built_in">cout</span>&lt;&lt;nums[s[<span class="number">0</span>]-<span class="string">'0'</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">else</span>  <span class="built_in">cout</span>&lt;&lt;nums[s[<span class="number">0</span>]-<span class="string">'0'</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==<span class="string">'0'</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(f[i]==<span class="literal">false</span>)&#123;</span><br><span class="line">				<span class="keyword">int</span> j=i;</span><br><span class="line">				<span class="keyword">while</span>(j&lt;len)&#123;</span><br><span class="line">					<span class="keyword">if</span>(s[j]==<span class="string">'0'</span>)&#123;</span><br><span class="line">						f[j]=<span class="literal">true</span>;</span><br><span class="line">						<span class="keyword">if</span>(j+n==<span class="number">5</span>)&#123;</span><br><span class="line">							<span class="keyword">bool</span> help=<span class="literal">true</span>;<span class="comment">//判断是否从亿位到万位都为零 </span></span><br><span class="line">							<span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'-'</span>)&#123;<span class="comment">//如果第一位是'-' </span></span><br><span class="line">								<span class="keyword">if</span>(len&gt;<span class="number">9</span>)&#123;</span><br><span class="line">									<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=j;k++)&#123;</span><br><span class="line">										<span class="keyword">if</span>(s[k]!=<span class="string">'0'</span>)&#123;</span><br><span class="line">											help=<span class="literal">false</span>;</span><br><span class="line">											<span class="keyword">break</span>;</span><br><span class="line">										&#125; </span><br><span class="line">									&#125;</span><br><span class="line">									<span class="keyword">if</span>(!help)&#123;</span><br><span class="line">										<span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+j];	</span><br><span class="line">									&#125;	</span><br><span class="line">								&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">									<span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+j];</span><br><span class="line">								&#125;</span><br><span class="line">							&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">								<span class="keyword">if</span>(len&gt;=<span class="number">9</span>)&#123;</span><br><span class="line">									<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=j;k++)&#123;</span><br><span class="line">										<span class="keyword">if</span>(s[k]!=<span class="string">'0'</span>)&#123;</span><br><span class="line">											help=<span class="literal">false</span>;</span><br><span class="line">											<span class="keyword">break</span>;</span><br><span class="line">										&#125; </span><br><span class="line">									&#125;</span><br><span class="line">									<span class="keyword">if</span>(!help)&#123;</span><br><span class="line">										<span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+j];	</span><br><span class="line">									&#125;	</span><br><span class="line">								&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">									<span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+j];</span><br><span class="line">								&#125;	</span><br><span class="line">							&#125;							</span><br><span class="line">						&#125;	</span><br><span class="line">					&#125; </span><br><span class="line">					<span class="keyword">else</span>&#123;</span><br><span class="line">						flag=<span class="literal">true</span>;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;	</span><br><span class="line">					j++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">				<span class="keyword">if</span>(i+n!=<span class="number">5</span>)&#123;</span><br><span class="line">					<span class="built_in">cout</span>&lt;&lt;<span class="string">" ling"</span>;</span><br><span class="line">					flag=<span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">1</span>&amp;&amp;s[<span class="number">0</span>]!=<span class="string">'-'</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>; </span><br><span class="line">			<span class="keyword">if</span>(i!=<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">			<span class="keyword">if</span>(n+i&lt;<span class="number">9</span>) &#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;nums[s[i]-<span class="string">'0'</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;unit[n+i];<span class="comment">//单位只有八个 	</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;nums[s[i]-<span class="string">'0'</span>]; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -279,12 +277,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/08/23/PAT-A1077-Kuchiguse/">PAT A1077 Kuchiguse</a></p>
+  <p><span>本文标题:</span><a href="/2020/08/24/PAT-A1082-Read-Number-in-Chinese/">PAT A1082 Read Number in Chinese</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
-  <p><span>发布时间:</span>2020年08月23日 - 20:08</p>
-  <p><span>最后更新:</span>2020年08月23日 - 20:08</p>
-  <p><span>原始链接:</span><a href="/2020/08/23/PAT-A1077-Kuchiguse/" title="PAT A1077 Kuchiguse">http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/23/PAT-A1077-Kuchiguse/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年08月24日 - 09:08</p>
+  <p><span>最后更新:</span>2020年08月24日 - 11:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/24/PAT-A1082-Read-Number-in-Chinese/" title="PAT A1082 Read Number in Chinese">http://www.gavinygm.cn/2020/08/24/PAT-A1082-Read-Number-in-Chinese/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/24/PAT-A1082-Read-Number-in-Chinese/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -320,12 +318,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/23/PAT-A1035-Password/" rel="prev" title="PAT A1035 Password">
-      <i class="fa fa-chevron-left"></i> PAT A1035 Password
+    <a href="/2020/08/23/PAT-A1077-Kuchiguse/" rel="prev" title="PAT A1077 Kuchiguse">
+      <i class="fa fa-chevron-left"></i> PAT A1077 Kuchiguse
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/24/PAT-A1082-Read-Number-in-Chinese/" rel="next" title="PAT A1082 Read Number in Chinese">
-      PAT A1082 Read Number in Chinese <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/24/PAT-A1062-Talent-and-Virtue/" rel="next" title="PAT A1062 Talent and Virtue">
+      PAT A1062 Talent and Virtue <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -385,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#误区"><span class="nav-number">2.</span> <span class="nav-text">误区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的代码"><span class="nav-number">3.</span> <span class="nav-text">我的代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

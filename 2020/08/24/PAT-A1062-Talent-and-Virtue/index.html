@@ -29,21 +29,21 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="给出两个整数a、b（不超过10^9），求a+b的值，并按照xxx,xxx,xxx的格式输出。">
+  <meta name="description" content="给出n个考生的准考证号、德分、才分以及及格线L，优秀线H，然后对这n个考生进行分类并按照规则排序。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT A1001 A+B Format">
-<meta property="og:url" content="http://www.gavinygm.cn/2020/08/23/PAT-A1001-A-B-Format/index.html">
+<meta property="og:title" content="PAT A1062 Talent and Virtue">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/24/PAT-A1062-Talent-and-Virtue/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="给出两个整数a、b（不超过10^9），求a+b的值，并按照xxx,xxx,xxx的格式输出。">
+<meta property="og:description" content="给出n个考生的准考证号、德分、才分以及及格线L，优秀线H，然后对这n个考生进行分类并按照规则排序。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-23T09:11:31.000Z">
-<meta property="article:modified_time" content="2020-08-23T09:57:32.835Z">
+<meta property="article:published_time" content="2020-08-24T06:16:02.000Z">
+<meta property="article:modified_time" content="2020-08-24T06:28:09.715Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.gavinygm.cn/2020/08/23/PAT-A1001-A-B-Format/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/24/PAT-A1062-Talent-and-Virtue/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>PAT A1001 A+B Format | 学习经验记录</title>
+  <title>PAT A1062 Talent and Virtue | 学习经验记录</title>
   
 
 
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/23/PAT-A1001-A-B-Format/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/24/PAT-A1062-Talent-and-Virtue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PAT A1001 A+B Format
+          PAT A1062 Talent and Virtue
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-23 17:11:31 / 修改时间：17:57:32" itemprop="dateCreated datePublished" datetime="2020-08-23T17:11:31+08:00">2020-08-23</time>
+              <time title="创建时间：2020-08-24 14:16:02 / 修改时间：14:28:09" itemprop="dateCreated datePublished" datetime="2020-08-24T14:16:02+08:00">2020-08-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-            <div class="post-description">给出两个整数a、b（不超过10^9），求a+b的值，并按照xxx,xxx,xxx的格式输出。</div>
+            <div class="post-description">给出n个考生的准考证号、德分、才分以及及格线L，优秀线H，然后对这n个考生进行分类并按照规则排序。</div>
 
         </div>
       </header>
@@ -255,15 +255,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400" target="_blank" rel="noopener">题目链接</a></p>
-<h2 id="递归解法"><a href="#递归解法" class="headerlink" title="递归解法"></a>递归解法</h2><blockquote>
-<p>不需要转换成字符，直接递归，从右到左，每3位输出一个’,’，进去的时候不打印，递归回来的时候打印，即从头开始打印，递归神技~</p>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805410555346944" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
+<p>排序问题：使用自定义结构体，按照题目要求，分成几类人，设置标志位t，然后编写cmp函数，使用算法库的sort进行排序。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n / <span class="number">10</span> != <span class="number">0</span>) &#123;</span><br><span class="line">		i++;</span><br><span class="line">		f(n / <span class="number">10</span>,i);</span><br><span class="line">        i--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, n % <span class="number">10</span>);</span><br><span class="line">	<span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span>&amp;&amp;i!=<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">","</span>);	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, sum;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">	sum = n + m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (sum&lt;<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">		sum = -sum;</span><br><span class="line">	&#125;</span><br><span class="line">	f(sum,<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字符串解法"><a href="#字符串解法" class="headerlink" title="字符串解法"></a>字符串解法</h2><blockquote>
-<p>将整数转为字符串，然后从头到尾遍历，当前位置加1对3取余等于字符串长度对3取余时即输处“，”。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>1、not below是不小于也就是大于等于的意思！！！</p>
+<p>2、cin,cout超时的话可以用printf和scanf，也可以加一句std::ios::sync_with_stdio(false);</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a,b,c,len;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	c=a+b;</span><br><span class="line">	<span class="built_in">stringstream</span> ss;</span><br><span class="line">	ss&lt;&lt;c;</span><br><span class="line">	<span class="built_in">string</span> s=ss.str();</span><br><span class="line">	len=s.length();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;s[i];</span><br><span class="line">		<span class="keyword">if</span>(s[i]==<span class="string">'-'</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">if</span>((i+<span class="number">1</span>)%<span class="number">3</span>==len%<span class="number">3</span>&amp;&amp;i&lt;len<span class="number">-1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">","</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Man</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> t;<span class="comment">//判断属于哪一类人</span></span><br><span class="line">	<span class="built_in">string</span> id;</span><br><span class="line">	<span class="keyword">int</span> vir,tal,total;</span><br><span class="line">&#125;men[maxn];</span><br><span class="line"><span class="keyword">int</span> n,L,H,k=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Man a,Man b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.t!=b.t) <span class="keyword">return</span> a.t&lt;b.t;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.total!=b.total) <span class="keyword">return</span> a.total&gt;b.total;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.vir!=b.vir) <span class="keyword">return</span> a.vir&gt;b.vir;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.id&lt;b.id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;L&gt;&gt;H;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="keyword">int</span> v,t;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;s&gt;&gt;v&gt;&gt;t;</span><br><span class="line">		<span class="keyword">if</span>(v&lt;L||t&lt;L) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">if</span>(v&gt;=H&amp;&amp;t&gt;=H)&#123;</span><br><span class="line">			men[k].t=<span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(v&gt;=H&amp;&amp;t&lt;H)&#123;</span><br><span class="line">			men[k].t=<span class="number">2</span>;	</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(v&gt;=t)&#123;</span><br><span class="line">			men[k].t=<span class="number">3</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			men[k].t=<span class="number">4</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		men[k].id=s;men[k].vir=v;</span><br><span class="line">		men[k].tal=t;men[k].total=v+t;</span><br><span class="line">		k++;</span><br><span class="line">	&#125; </span><br><span class="line">	sort(men,men+k,cmp);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;k&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;men[i].id&lt;&lt;<span class="string">" "</span>&lt;&lt;men[i].vir&lt;&lt;<span class="string">" "</span>&lt;&lt;men[i].tal&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;		</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -279,12 +279,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/08/23/PAT-A1001-A-B-Format/">PAT A1001 A+B Format</a></p>
+  <p><span>本文标题:</span><a href="/2020/08/24/PAT-A1062-Talent-and-Virtue/">PAT A1062 Talent and Virtue</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
-  <p><span>发布时间:</span>2020年08月23日 - 17:08</p>
-  <p><span>最后更新:</span>2020年08月23日 - 17:08</p>
-  <p><span>原始链接:</span><a href="/2020/08/23/PAT-A1001-A-B-Format/" title="PAT A1001 A+B Format">http://www.gavinygm.cn/2020/08/23/PAT-A1001-A-B-Format/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/23/PAT-A1001-A-B-Format/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年08月24日 - 14:08</p>
+  <p><span>最后更新:</span>2020年08月24日 - 14:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/24/PAT-A1062-Talent-and-Virtue/" title="PAT A1062 Talent and Virtue">http://www.gavinygm.cn/2020/08/24/PAT-A1062-Talent-and-Virtue/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/24/PAT-A1062-Talent-and-Virtue/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -320,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/23/PAT-A1058-A-B-in-Hogwarts/" rel="prev" title="PAT A1058 A+B in Hogwarts">
-      <i class="fa fa-chevron-left"></i> PAT A1058 A+B in Hogwarts
+    <a href="/2020/08/24/PAT-A1082-Read-Number-in-Chinese/" rel="prev" title="PAT A1082 Read Number in Chinese">
+      <i class="fa fa-chevron-left"></i> PAT A1082 Read Number in Chinese
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/23/PAT-A1005-Spell-It-Right/" rel="next" title="PAT A1005 Spell It Right">
-      PAT A1005 Spell It Right <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -385,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归解法"><span class="nav-number">1.</span> <span class="nav-text">递归解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串解法"><span class="nav-number">2.</span> <span class="nav-text">字符串解法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
