@@ -29,15 +29,15 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
+  <meta name="description" content="在英文字母不区分大小写的情况下判断在第一个字符串中有哪些字符没有在第二个字符串中出现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT A1084 Broken Keyboard">
 <meta property="og:url" content="http://www.gavinygm.cn/2020/08/26/PAT-A1084-Broken-Keyboard/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”">
+<meta property="og:description" content="在英文字母不区分大小写的情况下判断在第一个字符串中有哪些字符没有在第二个字符串中出现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-26T15:01:45.000Z">
-<meta property="article:modified_time" content="2020-08-26T15:45:03.565Z">
+<meta property="article:modified_time" content="2020-08-26T16:26:44.897Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="算法">
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-26 23:01:45 / 修改时间：23:45:03" itemprop="dateCreated datePublished" datetime="2020-08-26T23:01:45+08:00">2020-08-26</time>
+              <time title="创建时间：2020-08-26 23:01:45" itemprop="dateCreated datePublished" datetime="2020-08-26T23:01:45+08:00">2020-08-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-27 00:26:44" itemprop="dateModified" datetime="2020-08-27T00:26:44+08:00">2020-08-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -244,7 +250,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-            <div class="post-description">给定N个字符串，求它们的公共后缀。如果不存在，就输出“nai”</div>
+            <div class="post-description">在英文字母不区分大小写的情况下判断在第一个字符串中有哪些字符没有在第二个字符串中出现。</div>
 
         </div>
       </header>
@@ -255,7 +261,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805382902300672" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
 <p>利用ASCII码有255位当做散列的index，然后利用第一个字符串遍历，这个遍历的顺序再去索引ans这个数组。这个数组全部初始化为0，遍历第一个字符串每次都加一，第二个字符串每次都减一，最后大于0的就按照第一个字符串的顺序遍历一遍，如果输出过了就设为-1.</p>
 </blockquote>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
@@ -280,7 +287,7 @@
   <p><span>本文标题:</span><a href="/2020/08/26/PAT-A1084-Broken-Keyboard/">PAT A1084 Broken Keyboard</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
   <p><span>发布时间:</span>2020年08月26日 - 23:08</p>
-  <p><span>最后更新:</span>2020年08月26日 - 23:08</p>
+  <p><span>最后更新:</span>2020年08月27日 - 00:08</p>
   <p><span>原始链接:</span><a href="/2020/08/26/PAT-A1084-Broken-Keyboard/" title="PAT A1084 Broken Keyboard">http://www.gavinygm.cn/2020/08/26/PAT-A1084-Broken-Keyboard/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/26/PAT-A1084-Broken-Keyboard/"  aria-label="复制成功！"></i></span>
   </p>
@@ -321,7 +328,10 @@
     <a href="/2020/08/26/PAT-A1095-Cars-on-Campus/" rel="prev" title="PAT A1095 Cars on Campus">
       <i class="fa fa-chevron-left"></i> PAT A1095 Cars on Campus
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/27/PAT-A1092-To-Buy-or-Not-to-Buy/" rel="next" title="PAT A1092 To Buy or Not to Buy">
+      PAT A1092 To Buy or Not to Buy <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -396,7 +406,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -469,7 +479,7 @@
 
 <div class="theme-info" style="color:black;">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共32.1k字</span>
+  <span class="post-count">博客全站共32.3k字</span>
 </div>
 
         
