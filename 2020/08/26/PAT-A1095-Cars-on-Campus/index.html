@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 动态背景 -->
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="给出N条记录，每条记录给出一辆车的车牌号、当前时刻以及出入校情况(入校(in)还是出校(out))。然后给出K个查询，每个查询给出一个时刻，输出在这个时刻校园内的车辆数。查询完毕后输出在学校停留时间最长的车辆的车牌号(如果有多个，就一并输出)和对应的停留时间。注意：对于同一辆车来说，配对的on和off必须满足在把这辆车的记录按时间顺序排列后，在他们之间不允许出现其他on或者是off的记录；否则将被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT A1095 Cars on Campus">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/26/PAT-A1095-Cars-on-Campus/index.html">
+<meta property="og:site_name" content="学习经验记录">
+<meta property="og:description" content="给出N条记录，每条记录给出一辆车的车牌号、当前时刻以及出入校情况(入校(in)还是出校(out))。然后给出K个查询，每个查询给出一个时刻，输出在这个时刻校园内的车辆数。查询完毕后输出在学校停留时间最长的车辆的车牌号(如果有多个，就一并输出)和对应的停留时间。注意：对于同一辆车来说，配对的on和off必须满足在把这辆车的记录按时间顺序排列后，在他们之间不允许出现其他on或者是off的记录；否则将被">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-26T09:11:47.000Z">
+<meta property="article:modified_time" content="2020-08-26T14:19:57.383Z">
+<meta property="article:author" content="GavinYGM">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/26/PAT-A1095-Cars-on-Campus/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PAT A1095 Cars on Campus | 学习经验记录</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">学习经验记录</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">www.gavinygm.cn</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/26/PAT-A1095-Cars-on-Campus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
+      <meta itemprop="name" content="GavinYGM">
+      <meta itemprop="description" content="学习使我快乐，前提要有动力，动力得自己找才行！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习经验记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PAT A1095 Cars on Campus
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-26 17:11:47 / 修改时间：22:19:57" itemprop="dateCreated datePublished" datetime="2020-08-26T17:11:47+08:00">2020-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT%E7%94%B2%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">PAT甲级</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">给出N条记录，每条记录给出一辆车的车牌号、当前时刻以及出入校情况(入校(in)还是出校(out))。然后给出K个查询，每个查询给出一个时刻，输出在这个时刻校园内的车辆数。查询完毕后输出在学校停留时间最长的车辆的车牌号(如果有多个，就一并输出)和对应的停留时间。注意：对于同一辆车来说，配对的on和off必须满足在把这辆车的记录按时间顺序排列后，在他们之间不允许出现其他on或者是off的记录；否则将被视为无效记录。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h2><p>第四个测试点运行超时，只得了27分。比较浪费精力的是我是用Time结构体表示时间来计算，其实完全没必要，可以全部转换成秒！！！</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><blockquote>
+<p>1、先读取所有记录并保存在结构体数组cars中，然后对其排序，先按照姓名，然后按照时间的先后来排序。</p>
+<p>2、然后新建一个结构体数组，保存没对on和out，包括开始时间、结束时间和总时间。得出数组ncars</p>
+<p>3、求每辆车一天总的停车时间，由于一辆车可能在一天内不同的时间段，所以要对ncars数组求和再保存另一个数组织中sumcars，此时对sumcars数组排序，最前面的几个就是总时间最多的!</p>
+<p>4、最后根据查询判断查询时间是否在开始时间和结束时间之间，在的话就计数加一。</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> K=<span class="number">8</span>*<span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,k;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Time</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> h,m,s;</span><br><span class="line">&#125;qr[K];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Car</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> id[<span class="number">10</span>];</span><br><span class="line">	Time t;</span><br><span class="line">	<span class="keyword">char</span> status[<span class="number">5</span>];</span><br><span class="line">&#125;cars[N];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">newCar</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> id[<span class="number">10</span>];</span><br><span class="line">	Time start,<span class="built_in">end</span>,total;</span><br><span class="line">&#125;ncars[N/<span class="number">2</span>],sumcars[N/<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Car&amp; a,<span class="keyword">const</span> Car&amp; b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">strcmp</span>(a.id,b.id)!=<span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">strcmp</span>(a.id,b.id)&lt;<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.t.h!=b.t.h) <span class="keyword">return</span> a.t.h&lt;b.t.h;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.t.m!=b.t.m) <span class="keyword">return</span> a.t.m&lt;b.t.m;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.t.s&lt;b.t.s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpNcars</span><span class="params">(<span class="keyword">const</span> newCar&amp; a,<span class="keyword">const</span> newCar&amp; b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.start.h!=b.start.h) <span class="keyword">return</span> a.start.h&lt;b.start.h;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.start.m!=b.start.m) <span class="keyword">return</span> a.start.m&lt;b.start.m;</span><br><span class="line">	<span class="keyword">else</span> a.start.s&lt;b.start.s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpTotal</span><span class="params">(<span class="keyword">const</span> newCar&amp; a,<span class="keyword">const</span> newCar&amp; b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.total.h!=b.total.h) <span class="keyword">return</span> a.total.h&gt;b.total.h;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.total.m!=b.total.m) <span class="keyword">return</span> a.total.m&gt;b.total.m;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.total.s!=b.total.s) <span class="keyword">return</span> a.total.s&gt;b.total.s;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">strcmp</span>(a.id,b.id)&lt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">greater</span><span class="params">(<span class="keyword">const</span> Time&amp; a,<span class="keyword">const</span> Time&amp; b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.h!=b.h) <span class="keyword">return</span> a.h&gt;b.h;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.m!=b.m) <span class="keyword">return</span> a.m&gt;b.m;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.s&gt;=b.s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//a-b</span></span><br><span class="line"><span class="function">Time <span class="title">get_gap</span><span class="params">(<span class="keyword">const</span> Time&amp; a,<span class="keyword">const</span> Time&amp; b)</span></span>&#123;</span><br><span class="line">	Time t;</span><br><span class="line">	<span class="keyword">if</span>(a.s&gt;=b.s) &#123;</span><br><span class="line">		t.s=a.s-b.s;</span><br><span class="line">		<span class="keyword">if</span>(a.m&gt;=b.m)&#123;</span><br><span class="line">			t.m=a.m-b.m;</span><br><span class="line">			t.h=a.h-b.h;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			t.m=a.m+<span class="number">60</span>-b.m;</span><br><span class="line">			t.h=a.h-b.h<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		t.s=a.s+<span class="number">60</span>-b.s;</span><br><span class="line">		<span class="keyword">if</span>(a.m<span class="number">-1</span>&gt;=b.m)&#123;</span><br><span class="line">			t.m=a.m<span class="number">-1</span>-b.m;</span><br><span class="line">			t.h=a.h-b.h;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			t.m=a.m<span class="number">-1</span>+<span class="number">60</span>-b.m;</span><br><span class="line">			t.h=a.h-b.h<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Time <span class="title">get_sum</span><span class="params">(<span class="keyword">const</span> Time&amp; a,<span class="keyword">const</span> Time&amp; b)</span></span>&#123;</span><br><span class="line">	Time t;</span><br><span class="line">	<span class="keyword">if</span>(a.s+b.s&gt;=<span class="number">60</span>)&#123;</span><br><span class="line">		t.s=a.s+b.s<span class="number">-60</span>;</span><br><span class="line">		<span class="keyword">if</span>(a.m+b.m+<span class="number">1</span>&gt;=<span class="number">60</span>)&#123;</span><br><span class="line">			t.m=a.m+b.m+<span class="number">1</span><span class="number">-60</span>;</span><br><span class="line">			t.h=a.h+b.h+<span class="number">1</span>;	</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			t.m=a.m+b.m+<span class="number">1</span>;</span><br><span class="line">			t.h=a.h+b.h;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		t.s=a.s+b.s;</span><br><span class="line">		<span class="keyword">if</span>(a.m+b.m&gt;=<span class="number">60</span>)&#123;</span><br><span class="line">			t.m=a.m+b.m<span class="number">-60</span>;</span><br><span class="line">			t.h=a.h+b.h+<span class="number">1</span>;	</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			t.m=a.m+b.m;</span><br><span class="line">			t.h=a.h+b.h;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s %d:%d:%d %s"</span>,&amp;cars[i].id,&amp;cars[i].t.h,&amp;cars[i].t.m,&amp;cars[i].t.s,&amp;cars[i].status);	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d:%d:%d"</span>,&amp;qr[i].h,&amp;qr[i].m,&amp;qr[i].s);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	sort(cars,cars+n,cmp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//	for(int i=0;i&lt;n;i++)&#123;</span></span><br><span class="line"><span class="comment">//		printf("%s %02d:%02d:%02d %s\n",cars[i].id,cars[i].t.h,cars[i].t.m,cars[i].t.s,cars[i].status);	</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	<span class="comment">//找出每一对in和out，保存到新的结构体数组ncars中，</span></span><br><span class="line">	<span class="comment">//每个结构体包括开始时间、结束时间和该停车时间段时长 </span></span><br><span class="line">	<span class="keyword">int</span> c=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">strcmp</span>(cars[i].id,cars[i+<span class="number">1</span>].id)==<span class="number">0</span>&amp;&amp;</span><br><span class="line">			<span class="built_in">strcmp</span>(cars[i].status,<span class="string">"in"</span>)==<span class="number">0</span>&amp;&amp;</span><br><span class="line">			<span class="built_in">strcmp</span>(cars[i+<span class="number">1</span>].status,<span class="string">"out"</span>)==<span class="number">0</span>	</span><br><span class="line">		)&#123;</span><br><span class="line">			<span class="built_in">strcpy</span>(ncars[c].id,cars[i].id);</span><br><span class="line">			ncars[c].start=cars[i].t;</span><br><span class="line">			ncars[c].<span class="built_in">end</span>=cars[i+<span class="number">1</span>].t;</span><br><span class="line">			ncars[c].total=get_gap(cars[i+<span class="number">1</span>].t,cars[i].t);</span><br><span class="line">			c++;</span><br><span class="line">			i++;	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//将车牌相同的总停车时间求和 </span></span><br><span class="line">	<span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//设置中间变量</span></span><br><span class="line">	<span class="keyword">char</span> ids[<span class="number">10</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(ids,ncars[<span class="number">0</span>].id);</span><br><span class="line">	Time tmp=ncars[<span class="number">0</span>].total;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;c;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">strcmp</span>(ncars[i].id,ids)!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">strcpy</span>(sumcars[p].id,ids);</span><br><span class="line">			sumcars[p].total=tmp;</span><br><span class="line">			<span class="built_in">strcpy</span>(ids,ncars[i].id);<span class="comment">//更新中间变量 </span></span><br><span class="line">			tmp=ncars[i].total;</span><br><span class="line">			p++; </span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			tmp=get_sum(tmp,ncars[i].total);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//把最后一个值加入sumcars </span></span><br><span class="line">	sumcars[p].total=tmp;</span><br><span class="line">	<span class="built_in">strcpy</span>(sumcars[p].id,ids);</span><br><span class="line">	p++;</span><br><span class="line">	sort(sumcars,sumcars+p,cmpTotal);<span class="comment">//排序，找出最长停车时间的车牌 </span></span><br><span class="line">	<span class="comment">//------------------------------&gt;到此处sumcars中存放最长停车时间 </span></span><br><span class="line">	</span><br><span class="line">	sort(ncars,ncars+c,cmpNcars);<span class="comment">//先把ncars按照start时间排序 </span></span><br><span class="line">	<span class="comment">//下面开始根据ncars来判断每个query查询时间停车数 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;c;j++)&#123;<span class="comment">//可能超时！！！ </span></span><br><span class="line">			<span class="keyword">if</span>(greater(qr[i],ncars[j].start)&amp;&amp;!greater(qr[i],ncars[j].<span class="built_in">end</span>))&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	newCar ans=sumcars[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;p;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(sumcars[i].total.h==ans.total.h&amp;&amp;</span><br><span class="line">			sumcars[i].total.m==ans.total.m&amp;&amp;</span><br><span class="line">			sumcars[i].total.s==ans.total.s</span><br><span class="line">		)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%s "</span>,sumcars[i].id);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d"</span>,ans.total.h,ans.total.m,ans.total.s);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//printf("%s %02d:%02d:%02d %02d:%02d:%02d--&gt;%02d:%02d:%02d\n",</span></span><br><span class="line"><span class="comment">//		sumcars[i].id,sumcars[i].start.h,sumcars[i].start.m,sumcars[i].start.s,</span></span><br><span class="line"><span class="comment">//		sumcars[i].end.h,sumcars[i].end.m,sumcars[i].end.s,</span></span><br><span class="line"><span class="comment">//		sumcars[i].total.h,sumcars[i].total.m,sumcars[i].total.s);</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法笔记解法"><a href="#算法笔记解法" class="headerlink" title="算法笔记解法"></a>算法笔记解法</h2><h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><blockquote>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/08/26/PAT-A1095-Cars-on-Campus/">PAT A1095 Cars on Campus</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
+  <p><span>发布时间:</span>2020年08月26日 - 17:08</p>
+  <p><span>最后更新:</span>2020年08月26日 - 22:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/26/PAT-A1095-Cars-on-Campus/" title="PAT A1095 Cars on Campus">http://www.gavinygm.cn/2020/08/26/PAT-A1095-Cars-on-Campus/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/26/PAT-A1095-Cars-on-Campus/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+
+
+      
+</div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/26/PAT-A1055-The-World-s-Richest/" rel="prev" title="PAT A1055 The World's Richest">
+      <i class="fa fa-chevron-left"></i> PAT A1055 The World's Richest
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/26/PAT-A1084-Broken-Keyboard/" rel="next" title="PAT A1084 Broken Keyboard">
+      PAT A1084 Broken Keyboard <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的解法"><span class="nav-number">1.</span> <span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">1.1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法笔记解法"><span class="nav-number">2.</span> <span class="nav-text">算法笔记解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-number">2.1.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GavinYGM"
+      src="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
+  <p class="site-author-name" itemprop="name">GavinYGM</p>
+  <div class="site-description" itemprop="description">学习使我快乐，前提要有动力，动力得自己找才行！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/304753882@qq.com" title="E-Mail → 304753882@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/Geek_Y" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;Geek_Y" rel="noopener" target="_blank"><i class="fa fa-book fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=167882&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright" style="color:black;">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">鲁ICP备19028195号-1</a></span>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by" style="color:black;">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_pv">
+    本站访问量:<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">
+    本站总访客量：<span id="busuanzi_value_site_uv"></span>人
+  </span>
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+
+<div class="theme-info" style="color:black;">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共32.1k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
