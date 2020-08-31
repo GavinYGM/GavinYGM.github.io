@@ -29,21 +29,21 @@
     var CONFIG = {"hostname":"www.gavinygm.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="给出n个正整数和一个正整数m，问n个数字中是否存在一对数字a和b(a">
+  <meta name="description" content="求N1和N2中未知进制的那个数是否存在，并满足某个进制时和另一个数在十进制下相等的条件。若存在，则输出满足条件的最小进制；否则输出Impossible。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT A1048 Find Coins">
-<meta property="og:url" content="http://www.gavinygm.cn/2020/08/28/PAT-A1048-Find-Coins/index.html">
+<meta property="og:title" content="PAT A1010 Radix">
+<meta property="og:url" content="http://www.gavinygm.cn/2020/08/31/PAT-A1010-Radix/index.html">
 <meta property="og:site_name" content="学习经验记录">
-<meta property="og:description" content="给出n个正整数和一个正整数m，问n个数字中是否存在一对数字a和b(a">
+<meta property="og:description" content="求N1和N2中未知进制的那个数是否存在，并满足某个进制时和另一个数在十进制下相等的条件。若存在，则输出满足条件的最小进制；否则输出Impossible。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-28T13:33:04.000Z">
-<meta property="article:modified_time" content="2020-08-28T13:40:48.850Z">
+<meta property="article:published_time" content="2020-08-31T08:32:36.000Z">
+<meta property="article:modified_time" content="2020-08-31T11:49:10.178Z">
 <meta property="article:author" content="GavinYGM">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.gavinygm.cn/2020/08/28/PAT-A1048-Find-Coins/">
+<link rel="canonical" href="http://www.gavinygm.cn/2020/08/31/PAT-A1010-Radix/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>PAT A1048 Find Coins | 学习经验记录</title>
+  <title>PAT A1010 Radix | 学习经验记录</title>
   
 
 
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/28/PAT-A1048-Find-Coins/">
+    <link itemprop="mainEntityOfPage" href="http://www.gavinygm.cn/2020/08/31/PAT-A1010-Radix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ygm-1258352234.cos.ap-beijing.myqcloud.com/1.jpg">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PAT A1048 Find Coins
+          PAT A1010 Radix
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-28 21:33:04 / 修改时间：21:40:48" itemprop="dateCreated datePublished" datetime="2020-08-28T21:33:04+08:00">2020-08-28</time>
+              <time title="创建时间：2020-08-31 16:32:36 / 修改时间：19:49:10" itemprop="dateCreated datePublished" datetime="2020-08-31T16:32:36+08:00">2020-08-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-            <div class="post-description">给出n个正整数和一个正整数m，问n个数字中是否存在一对数字a和b(a<=b),使得a+b=m。如果有多对，输出a最小的那对。</div>
+            <div class="post-description">求N1和N2中未知进制的那个数是否存在，并满足某个进制时和另一个数在十进制下相等的条件。若存在，则输出满足条件的最小进制；否则输出Impossible。</div>
 
         </div>
       </header>
@@ -255,11 +255,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805432256675840" target="_blank" rel="noopener">题目链接</a></p>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805507225665536" target="_blank" rel="noopener">题目链接</a></p>
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
-<p>使用散列的思想，首先用一个int数组表示index，即输入的数据，然后将数据从小到大排序，从而实现有多对只输出a最小的那对，然后设置另外设置一个ans数组来计数每一个index，然后遍历index数组，用m减去当前值，然后ans计数减一，利用两数的差作为索引去ans判断是否存在，如果存在就打印，不存在就继续遍历。直到结束。</p>
+<p>1、用一个数组rads表示<code>&#39;0&#39;~&#39;9&#39;,&#39;a&#39;~&#39;z&#39;</code>对应从0~35每个值。</p>
+<p>2、根据tag和radix将s1转为十进制的数n1。</p>
+<p>3、然后选择任意一个进制将s2转为n2，并和n1比较。因为进制基数越大，s2对应的数就越大，所以可以使用二分法来找出令n2=n1的基数radix。二分法需要先确定上界和下界。下界好理解，就是找出s2中最大的字符即可，上界就是n1+1，因为是为了找一个进制使n2==n1，进制基数恰好等于n1时，比如n2为’10’。</p>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,ind[maxn],ans[maxn]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ind[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(ans,<span class="number">0</span>,<span class="keyword">sizeof</span>(ans));</span><br><span class="line">    sort(ind,ind+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        ans[ind[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> has=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        ans[ind[i]]--;<span class="comment">//第一个数计数减一</span></span><br><span class="line">        <span class="keyword">int</span> x=m-ind[i];<span class="comment">//x表示第二个数</span></span><br><span class="line">        <span class="keyword">if</span> (ans[x]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            has=<span class="literal">true</span>;</span><br><span class="line">            ans[x]--;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,ind[i],x);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!has) <span class="built_in">printf</span>(<span class="string">"No Solution"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>1、一开始有一个误区，就是误以为n2也是在2<code>~</code>36进制，因为前面说数字都是0<code>~</code>z表示的。但是如果这样的话，就很难使n2等于n1了，因为n1在36进制时会是一个很大的数。题目给的任务就是要找一个进制使n2等于n1，这个进制基数有可能超过int范围，所以使用long long。</p>
+<p>2、还要注意在二分法找n2的进制基数时，将s2转为十进制数，由于基数特别大，很有可能溢出long long，所以要考虑溢出的情况，溢出了就一定大于n1，所以要将进制基数减小，也就是要在mid左边继续找。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">130</span>;</span><br><span class="line">ll n1, n2;</span><br><span class="line"><span class="built_in">string</span> s1, s2;</span><br><span class="line"><span class="keyword">int</span> rads[maxn];</span><br><span class="line"><span class="function">ll <span class="title">changeTodecimal</span><span class="params">(<span class="built_in">string</span> s, ll r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        ans=ans*r+rads[s[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">binaSearch</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch=*max_element(s.<span class="built_in">begin</span>(),s.<span class="built_in">end</span>());</span><br><span class="line">    ll l=rads[ch]+<span class="number">1</span>,r=<span class="built_in">max</span>(l,n1)+<span class="number">1</span>,mid;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">        mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        n2=changeTodecimal(s,mid);</span><br><span class="line">        <span class="keyword">if</span>(n2==n1) <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n2&lt;<span class="number">0</span>||n2&gt;n1)&#123;<span class="comment">//如果n2大于n1或者溢出，说明进制基数大了，需要向左找</span></span><br><span class="line">            r=mid<span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            l=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="comment">//初始化进制列表</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++) rads[i+<span class="string">'0'</span>]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="string">'a'</span>;i&lt;=<span class="string">'z'</span>;i++) rads[i]=i-<span class="string">'a'</span>+<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> tag, radix;</span><br><span class="line">    ll res;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s1 &gt;&gt; s2 &gt;&gt; tag &gt;&gt; radix;</span><br><span class="line">    <span class="keyword">if</span> (tag == <span class="number">1</span>) n1 = changeTodecimal(s1, radix);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (tag == <span class="number">2</span>) &#123;</span><br><span class="line">        n1 = changeTodecimal(s2, radix);</span><br><span class="line">        s2=s1;</span><br><span class="line">    &#125;</span><br><span class="line">    res=binaSearch(s2);</span><br><span class="line">    <span class="keyword">if</span>(res==<span class="number">-1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="string">"Impossible"</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -275,12 +281,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/08/28/PAT-A1048-Find-Coins/">PAT A1048 Find Coins</a></p>
+  <p><span>本文标题:</span><a href="/2020/08/31/PAT-A1010-Radix/">PAT A1010 Radix</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 GavinYGM 的个人博客">GavinYGM</a></p>
-  <p><span>发布时间:</span>2020年08月28日 - 21:08</p>
-  <p><span>最后更新:</span>2020年08月28日 - 21:08</p>
-  <p><span>原始链接:</span><a href="/2020/08/28/PAT-A1048-Find-Coins/" title="PAT A1048 Find Coins">http://www.gavinygm.cn/2020/08/28/PAT-A1048-Find-Coins/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/28/PAT-A1048-Find-Coins/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年08月31日 - 16:08</p>
+  <p><span>最后更新:</span>2020年08月31日 - 19:08</p>
+  <p><span>原始链接:</span><a href="/2020/08/31/PAT-A1010-Radix/" title="PAT A1010 Radix">http://www.gavinygm.cn/2020/08/31/PAT-A1010-Radix/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.gavinygm.cn/2020/08/31/PAT-A1010-Radix/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -316,13 +322,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/28/PAT-A1043-Is-It-a-Binary-Search-Tree/" rel="prev" title="PAT A1043 Is It a Binary Search Tree">
-      <i class="fa fa-chevron-left"></i> PAT A1043 Is It a Binary Search Tree
+    <a href="/2020/08/31/PAT-A1085-Perfect-Sequence/" rel="prev" title="PAT A1085 Perfect Sequence">
+      <i class="fa fa-chevron-left"></i> PAT A1085 Perfect Sequence
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/28/PAT-A1070-Mooncake/" rel="next" title="PAT A1070 Mooncake">
-      PAT A1070 Mooncake <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -381,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
